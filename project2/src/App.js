@@ -1,8 +1,12 @@
 import React from 'react';
+//form
+import Formu from './components/Formu.js';
 
-function App() {
+function App(props) {
   return (
-    <h1>Hola</h1>
+    <React.Fragment>
+      <Formu />
+    </React.Fragment>
   );
 }
 
