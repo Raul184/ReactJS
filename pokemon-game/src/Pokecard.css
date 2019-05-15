@@ -7,6 +7,27 @@
   background: white;
   border-radius: 3px;
 }
+.Pokecard-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  background: #eceff1;
+  border-radius: 3px;
+  margin: 1rem;
+}
+.Pokecard-image img{
+  opacity: .6;
+  transition: .5s;
+}
 .Pokecard-data{
   font-size: 16px;
+}
+
+/* 
+      HOOVER 
+*/
+
+.Pokecard-image:hover img{
+  transform: scale(1.5);
 }
