@@ -1,8 +1,5 @@
 {
-  "presets": [
-    "@babel/env",
-    "@babel/react"
-    //"@babel/typescript"
-  ] //plugins for Babel to compile my code
+  "presets": ["@babel/env","@babel/react"] , //plugins for Babel to compile my code
+  "plugins": ["@babel/plugin-proposal-class-properties"]
 }
 
