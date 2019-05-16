@@ -1,0 +1,17 @@
+.RollDice{
+  width: 800px;
+  max-width: 800px;
+}
+/* 
+    BUTTON 
+*/
+.RollDice-btn{
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  background: -moz-linear-gradient(right bottom, red 0% , white 100%);
+  font-size: 20px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px grey;
+}

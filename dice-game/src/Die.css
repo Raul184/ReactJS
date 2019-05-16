@@ -1,0 +1,20 @@
+/*
+   Container for dices 
+*/
+.Die{
+  text-align: center;
+  display: inline-block;
+  width: 50%;
+  max-width: 50%;
+}
+/*
+   Dices 
+*/
+.Die-dice{
+
+}
+.fa,
+.fas {
+  font-weight: 900;
+  font-size: 200px;
+}
