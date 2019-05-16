@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Clicker extends Component {
+export default class Clicker extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -21,5 +21,3 @@ class Clicker extends Component {
     )
   }
 }
-
-export default Clicker;
