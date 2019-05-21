@@ -4,35 +4,37 @@ import Ball from './Ball.js';
 
 export default class Lotto extends Component {
   static defaultProps = {
+    title: "Lotto",
     numBalls: 6 ,
-    maxValue: 40
+    maxNum: 40
   };
   constructor(props) {
     super(props);
     this.state = {
-      nums: [this.props.numBalls]
+      nums: Array.from({length: this.props.numBalls})
       //test1: 0
     }
   }
-  //Number getter
-  numsGetter = () =>{
-    let random = Math.floor(Math.random() * this.props.maxNum)
-    this.setState({
-      test1 : random
-    })
+  //ON-CLICK Event
+  generate(){
+    this.setState( currState => ({
+      nums: currState.nums.map(
+        n => Math.floor(Math.random() * this.props.maxNum) + 1
+      )
+    }));
+  }
+  handleClick = () => {
+    this.generate();
   }
   render() {
     return (
-      <div className="Loto">
-        <h1 className="Loto-title">{this.props.title}</h1>
-        <div className="Loto-can">
-          <Ball ballNumber={1} />
-          <Ball ballNumber={1} />
-          <Ball ballNumber={1} />
-          <Ball ballNumber={1} />
+      <section className="Lotto">
+        <h1 className="Lotto-title">{this.props.title}</h1>
+        <div className="Lotto-can">
+          {this.state.nums.map( n => <Ball ballNumber={n} />) }      
         </div>  
-        <button className="Loto-btn" onClick={this.numsGetter}>Generate</button>
-      </div>
+        <button className="Lotto-btn" onClick={this.handleClick}>Generate</button>
+      </section>
     )
   }
 }
