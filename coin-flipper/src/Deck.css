@@ -1,0 +1,11 @@
+.Deck{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+.Deck-title{
+  color: lightblue;
+}
+.Deck-btn{
+  margin: 20px;
+}
