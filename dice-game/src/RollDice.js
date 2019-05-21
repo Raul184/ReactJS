@@ -22,19 +22,22 @@ export default class RollDice extends Component {
     //set state
     this.setState({
       die1 : nuedie1,
-      die2 : nuedie2 
+      die2 : nuedie2,
+      isRolling : true 
     });
+    setTimeout(() => { this.setState({isRolling : false})}, 1000);
 
   }
   render() {
     return (
       <div className='RollDice'>
         <div className='RollDice-can'>
-          <Die face={this.state.die1} />
-          <Die face={this.state.die2} />
+          <Die face={this.state.die1} animation={this.state.isRolling}/>
+          <Die face={this.state.die2} animation={this.state.isRolling}/>
         </div>
-        <button className="RollDice-btn" onClick={this.roll}>
-          {this.state.isRolling ? 'Rolling...' : 'Roll Dice!'}</button>        
+        <button className="RollDice-btn" onClick={this.roll} disabled={this.state.isRolling}>
+          {this.state.isRolling ? 'Rolling...' : 'Roll Dice!'}
+        </button>        
       </div>
     )
   }
