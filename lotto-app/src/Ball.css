@@ -1,0 +1,15 @@
+.Ball{
+  padding: 20px;
+}
+.Ball .Ball-circle{
+  width: 80px;
+  height: 80px;
+  border-radius: 60px;
+  background-color: orangered;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+}
