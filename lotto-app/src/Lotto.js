@@ -24,6 +24,7 @@ export default class Lotto extends Component {
     }));
   }
   handleClick = () => {
+    //Generate nums and assigned them to state
     this.generate();
   }
   render() {
