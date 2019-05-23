@@ -1,0 +1,22 @@
+.ButtonList{
+  display: flex;
+  justify-content: center;
+}
+.ButtonList-btns{
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 2px 2px 2px grey;
+  transition: .2s;
+  color: white;
+  font-weight: 900;
+}
+
+/* HOVER */
+.ButtonList-btns:hover{
+  box-shadow: 0px 0px 2px grey;
+  transform: scale(15%);
+  opacity: .7;
+  color: grey;
+  font-weight: 800;
+  border: none;
+}
