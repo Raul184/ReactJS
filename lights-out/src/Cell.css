@@ -5,6 +5,7 @@
   background-color: #263238;
   transition: background-color .7s ease;
   border: 2px solid white;
+  padding: 3px;
 }
 .Cell-lit {
   background-color: #00bcd4;

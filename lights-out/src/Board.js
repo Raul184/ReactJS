@@ -99,7 +99,9 @@ class Board extends Component {
   /** Render game board or winning message. */
 
   render() {
-    if( this.state.hasWon) return <h1>You won!!</h1>
+    if( this.state.hasWon) return <div className="winner">
+      <span className='neon-orange'>YOU</span><span className='neon-blue'>WIN</span>
+    </div>
     
     let tableBoard = [];
     for (let r = 0; r < this.props.nrows; r++)
