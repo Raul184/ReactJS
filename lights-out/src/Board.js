@@ -72,7 +72,6 @@ class Board extends Component {
     console.log(coord);
     let {ncols, nrows} = this.props;
     let board = this.state.board;
-    let hasWon = this.state.hasWon;
     let [y, x] = coord.split("-").map(Number);
 
     //Declare within same outlook
@@ -90,16 +89,18 @@ class Board extends Component {
     flipCell(y, x - 1);
     flipCell(y + 1, x); 
     flipCell(y - 1, x);
-    // win when every cell is turned off
-    // TODO: determine is the game has been won
+
+    //Have you won?
+    let hasWon = board.every( row => row.every( cell => !cell));
 
     this.setState({board, hasWon});
   }
 
-
   /** Render game board or winning message. */
 
   render() {
+    if( this.state.hasWon) return <h1>You won!!</h1>
+    
     let tableBoard = [];
     for (let r = 0; r < this.props.nrows; r++)
     {
@@ -115,14 +116,17 @@ class Board extends Component {
     }
     return (
     // if the game is won, just show a winning msg & render nothing else
-
-    // TODO
-    // make table board
-      <table className="Board">
-        <tbody>
-          {tableBoard}
-        </tbody>
-      </table>
+      <div>
+        <div className="Board-title">
+          <div class="neon-orange">Lights</div>
+          <div class="neon-blue">Out</div>
+        </div>
+        <table className="Board">
+          <tbody>
+            {tableBoard}
+          </tbody>
+        </table>
+      </div>
     )
   }
 }
