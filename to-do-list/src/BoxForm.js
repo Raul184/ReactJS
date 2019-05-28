@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './BoxForm.css';
+import uuid from 'uuid/v4';
 export default class BoxForm extends Component {
   constructor(props){
     super(props);
@@ -18,7 +19,10 @@ export default class BoxForm extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
-    this.props.createBox(this.state);
+    const nueBox = {
+      ...this.state, id: uuid()
+    }
+    this.props.createBox(nueBox);
     this.setState({
       height: "",
       width: "",
@@ -30,21 +34,30 @@ export default class BoxForm extends Component {
       <form onSubmit={this.handleSubmit}>
           {/* height */}
           <label htmlFor="height">Height</label>
-          <input id="height" name="height" type="text" value={this.state.height} 
-                onChange={this.handleChange}>
+          <input id="height" 
+            name="height" 
+            type="text" 
+            value={this.state.height} 
+            onChange={this.handleChange}>
           </input>
           {/* width */}
           <label htmlFor="width">Width</label>
-        <input id="width" name="width" type="text" value={this.state.width} 
-              onChange={this.handleChange}>
-        </input>
+          <input id="width" 
+            name="width" 
+            type="text" 
+            value={this.state.width} 
+            onChange={this.handleChange}>
+          </input>
           {/* backgroundColor */}
           <label htmlFor="color">BackgroundColor</label>
-        <input id="color" name="color" 
-              type="text" value={this.state.color} onChange={this.handleChange}>
-        </input>
+          <input id="color" 
+            name="color" 
+            type="text" 
+            value={this.state.color} 
+            onChange={this.handleChange}>
+          </input>
           <button className="BoxesDeck-btn">Make new box</button>
-        </form>
+      </form>
     )
   }
 }
