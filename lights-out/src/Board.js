@@ -103,6 +103,7 @@ class Board extends Component {
       <span className='neon-orange'>YOU</span><span className='neon-blue'>WIN</span>
     </div>
     
+    // TABLE BEING PREPARED RIGHT BEFORE RENDERING
     let tableBoard = [];
     for (let r = 0; r < this.props.nrows; r++)
     {
@@ -116,6 +117,7 @@ class Board extends Component {
       }
       tableBoard.push(<tr key={r}>{row}</tr>)
     }
+    //
     return (
     // if the game is won, just show a winning msg & render nothing else
       <div>
