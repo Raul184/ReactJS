@@ -5,7 +5,6 @@ import BoxesDeck from './BoxesDeck';
 function App() {
   return (
     <div className="App">
-    <h1 className="App-title">Boxes Maker</h1>
     <BoxesDeck />
     </div>
   );

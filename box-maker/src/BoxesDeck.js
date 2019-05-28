@@ -34,6 +34,7 @@ export default class BoxesDeck extends Component {
     ));
     return (
       <div className="BoxesDeck">
+        <h1 className="App-title">Boxes Maker</h1>
         <BoxForm createBox={this.create} />
         {/* COLOR BOXES */}
         {boxes}

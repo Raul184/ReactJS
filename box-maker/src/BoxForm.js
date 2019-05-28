@@ -19,10 +19,12 @@ export default class BoxForm extends Component {
   }
   handleSubmit(e){
     e.preventDefault();
+    // create new box from form
     const nueBox = {
       ...this.state, id: uuid()
     }
     this.props.createBox(nueBox);
+    // restart state
     this.setState({
       height: "",
       width: "",
