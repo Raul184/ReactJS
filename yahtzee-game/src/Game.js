@@ -46,23 +46,27 @@ class Game extends Component {
   }
 
   toggleLocked(idx) {
+    if(this.state.rollsLeft > 0){
     // toggle whether idx is in locked or not
-    this.setState(st => ({
-      locked: [
-        ...st.locked.slice(0, idx),   // keep these ones unlocked
-        !st.locked[idx],              // flip this one
-        ...st.locked.slice(idx + 1)   // keep these ones unlocked
-      ]
-    }));
+      this.setState(st => ({
+        locked: [
+          ...st.locked.slice(0, idx),   // keep these ones unlocked
+          !st.locked[idx],              // flip this one
+          ...st.locked.slice(idx + 1)   // keep these ones unlocked
+        ]
+      }));
+    }
   }
 
   doScore(rulename, ruleFn) {
-    // evaluate this ruleFn with the dice and score this rulename
-    this.setState(st => ({
-      scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },
-      rollsLeft: NUM_ROLLS,
-      locked: Array(NUM_DICE).fill(false)
-    }));
+    // evaluate this ruleFn with the dice and score this rulename. Once per game  
+    if(this.state.scores[rulename] === undefined){
+      this.setState(st => ({
+        scores: { ...st.scores, [rulename]: ruleFn(this.state.dice) },
+        rollsLeft: NUM_ROLLS,
+        locked: Array(NUM_DICE).fill(false)
+      }));
+    }
     this.roll();
   }
 
@@ -77,11 +81,14 @@ class Game extends Component {
               dice={this.state.dice}
               locked={this.state.locked}
               handleClick={this.toggleLocked}
+              disabled={this.state.rollsLeft===0}
             />
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
-                disabled={this.state.locked.every(x => x)}
+                disabled={
+                  this.state.locked.every(x => x) || this.state.rollsLeft === 0
+                }
                 onClick={this.roll}
               >
                 {this.state.rollsLeft} Rerolls Left
@@ -89,7 +96,13 @@ class Game extends Component {
             </div>
           </section>
         </header>
-        <ScoreTable doScore={this.doScore} scores={this.state.scores} />
+        <div className="test">
+          {
+            typeof(this.state.dice[0]) === 'number' ? 
+              <ScoreTable doScore={this.doScore} scores={this.state.scores} /> :
+              ""
+          }
+        </div>
       </div>
     );
   }

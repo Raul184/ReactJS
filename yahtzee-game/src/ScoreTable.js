@@ -15,12 +15,12 @@ class ScoreTable extends Component {
           <h2>Upper</h2>
           <table cellSpacing="0">
             <tbody>
-              <RuleRow name="Ones" score={scores.ones} doScore={evt => doScore("ones", ones.evalRoll)} />
-              <RuleRow name="Twos" score={scores.twos} doScore={evt => doScore("twos", twos.evalRoll)} />
-              <RuleRow name="Threes" score={scores.threes} doScore={evt => doScore("threes", threes.evalRoll)} />
-              <RuleRow name="Fours" score={scores.fours} doScore={evt => doScore("fours", fours.evalRoll)} />
-              <RuleRow name="Fives" score={scores.fives} doScore={evt => doScore("fives", fives.evalRoll)} />
-              <RuleRow name="Sixes" score={scores.sixes} doScore={evt => doScore("sixes", sixes.evalRoll)} />
+              <RuleRow name="Ones" score={scores.ones} desc={ones.desc} doScore={evt => doScore("ones", ones.evalRoll)} />
+              <RuleRow name="Twos" score={scores.twos} desc={twos.desc} doScore={evt => doScore("twos", twos.evalRoll)} />
+              <RuleRow name="Threes" score={scores.threes} desc={threes.desc} doScore={evt => doScore("threes", threes.evalRoll)} />
+              <RuleRow name="Fours" score={scores.fours} desc={fours.desc} doScore={evt => doScore("fours", fours.evalRoll)} />
+              <RuleRow name="Fives" score={scores.fives} desc={fives.desc} doScore={evt => doScore("fives", fives.evalRoll)} />
+              <RuleRow name="Sixes" score={scores.sixes} desc={sixes.desc} doScore={evt => doScore("sixes", sixes.evalRoll)} />
             </tbody>
           </table>
         </section>
@@ -28,13 +28,13 @@ class ScoreTable extends Component {
           <h2>Lower</h2>
           <table cellSpacing="0">
             <tbody>
-              <RuleRow name="Three of Kind" score={scores.threeOfKind} doScore={evt => doScore("threeOfKind", threeOfKind.evalRoll)} />
-              <RuleRow name="Four of Kind" score={scores.fourOfKind} doScore={evt => doScore("fourOfKind", fourOfKind.evalRoll)} />
-              <RuleRow name="Full House" score={scores.fullHouse} doScore={evt => doScore("fullHouse", fullHouse.evalRoll)} />
-              <RuleRow name="Small Straight" score={scores.smallStraight} doScore={evt => doScore("smallStraight", smallStraight.evalRoll)} />
-              <RuleRow name="Large Straight" score={scores.largeStraight} doScore={evt => doScore("largeStraight", largeStraight.evalRoll)} />
-              <RuleRow name="Yahtzee" score={scores.yahtzee} doScore={evt => doScore("yahtzee", yahtzee.evalRoll)} />
-              <RuleRow name="Chance" score={scores.chance} doScore={evt => doScore("chance", chance.evalRoll)} />
+              <RuleRow name="Three of Kind" score={scores.threeOfKind} desc={threeOfKind.desc} doScore={evt => doScore("threeOfKind", threeOfKind.evalRoll)} />
+              <RuleRow name="Four of Kind" score={scores.fourOfKind} desc={fourOfKind.desc} doScore={evt => doScore("fourOfKind", fourOfKind.evalRoll)} />
+              <RuleRow name="Full House" score={scores.fullHouse} desc={fullHouse.desc} doScore={evt => doScore("fullHouse", fullHouse.evalRoll)} />
+              <RuleRow name="Small Straight" score={scores.smallStraight} desc={smallStraight.desc} doScore={evt => doScore("smallStraight", smallStraight.evalRoll)} />
+              <RuleRow name="Large Straight" score={scores.largeStraight} desc={largeStraight.desc} doScore={evt => doScore("largeStraight", largeStraight.evalRoll)} />
+              <RuleRow name="Yahtzee" score={scores.yahtzee} desc={yahtzee.desc} doScore={evt => doScore("yahtzee", yahtzee.evalRoll)} />
+              <RuleRow name="Chance" score={scores.chance} desc={chance.desc} doScore={evt => doScore("chance", chance.evalRoll)} />
             </tbody>
           </table>
         </section>

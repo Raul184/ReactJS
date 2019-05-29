@@ -57,14 +57,25 @@ class SumDistro extends Rule {
 
 /** Check if full house (3-of-kind and 2-of-kind) */
 
-class FullHouse {
-  // TODO
+class FullHouse extends Rule {
+  evalRoll = dice => {
+    const freqs = this.freq(dice);
+    return (freqs.includes(2) && freqs.includes(3)) && this.score; 
+  }
 }
 
 /** Check for small straights. */
 
-class SmallStraight {
+class SmallStraight extends Rule{
   // TODO
+  evalRoll = dice => {
+    const d = new Set(dice);
+    // small straight must be 5 different dice & only one can be a 1 or a 6
+    if (d.has(2) && d.has(3) && d.has(4) && (d.has(1) || d.has(5)) )
+      return this.score;
+    if (d.has(3) && d.has(4) && d.has(5) && (d.has(2) || d.has(6)))
+      return this.score;
+  }
 }
 
 /** Check for large straights. */
@@ -72,7 +83,6 @@ class SmallStraight {
 class LargeStraight extends Rule {
   evalRoll = dice => {
     const d = new Set(dice);
-
     // large straight must be 5 different dice & only one can be a 1 or a 6
     return d.size === 5 && (!d.has(1) || !d.has(6)) ? this.score : 0;
   };
@@ -88,29 +98,29 @@ class Yahtzee extends Rule {
 }
 
 // ones, twos, etc score as sum of that value
-const ones = new TotalOneNumber({ val: 1 });
-const twos = new TotalOneNumber({ val: 2 });
-const threes = new TotalOneNumber({ val: 3 });
-const fours = new TotalOneNumber({ val: 4 });
-const fives = new TotalOneNumber({ val: 5 });
-const sixes = new TotalOneNumber({ val: 6 });
+const ones = new TotalOneNumber({ val: 1, desc: "1 point for each one" });
+const twos = new TotalOneNumber({ val: 2, desc: "2 point for each one" });
+const threes = new TotalOneNumber({ val: 3, desc: "3 point for each one" });
+const fours = new TotalOneNumber({ val: 4, desc: "4 point for each one" });
+const fives = new TotalOneNumber({ val: 5, desc: "5 point for each one" });
+const sixes = new TotalOneNumber({ val: 6, desc: "6 point for each one" });
 
 // three/four of kind score as sum of all dice
-const threeOfKind = new SumDistro({ count: 3 });
-const fourOfKind = new SumDistro({ count: 4 });
+const threeOfKind = new SumDistro({ count: 3, desc: "Sum of 3 equal dices" });
+const fourOfKind = new SumDistro({ count: 4, desc: "Sum of 4 equal dices" });
 
 // full house scores as flat 25
-const fullHouse = "TODO";
+const fullHouse = new FullHouse({ score: 25, desc: "Full house coupled"});
 
 // small/large straights score as 30/40
-const smallStraight = "TODO";
-const largeStraight = new LargeStraight({ score: 40 });
+const smallStraight = new SmallStraight({ score: 30, desc: "Small straight of values"});
+const largeStraight = new LargeStraight({ score: 40, desc: "High straight of values" });
 
 // yahtzee scores as 50
-const yahtzee = new Yahtzee({ score: 50 });
+const yahtzee = new Yahtzee({ score: 50, desc: "All values coupled" });
 
 // for chance, can view as some of all dice, requiring at least 0 of a kind
-const chance = new SumDistro({ count: 0 });
+const chance = new SumDistro({ count: 0, desc: "Sum them ALL!!" });
 
 export {
   ones,
