@@ -33,13 +33,18 @@ export default class NewTodoForm extends Component {
   }
   render() {
     return (
-      <div className="NewTodoForm">
-        <form onSubmit={this.handleSubmit}>
+        <form className="NewToDoForm" onSubmit={this.handleSubmit}>
           <label htmlFor="toDo">New Todo</label>
-          <input id="toDo" name="task" type="text" value={this.state.task} onChange={this.handleChange}></input>
+          <input 
+            id="toDo" 
+            name="task" 
+            type="text" 
+            value={this.state.task} 
+            onChange={this.handleChange}
+            placeholder="New Task"
+          ></input>
           <button>ADD TODO</button>
         </form>
-      </div>
     )
   }
 }

@@ -12,6 +12,7 @@ export default class Todo extends Component {
     this.toggleForm = this.toggleForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
   // Handle Click FOR REMOVE
   handleClick(){
@@ -36,13 +37,17 @@ export default class Todo extends Component {
       [e.target.name]: [e.target.value]
     })
   }
+  // LI
+  handleToggle(){
+    this.props.toggleCompletion(this.props.id);
+  }
   //----------------
   render() {
     let result;
     if(this.state.isEditing){
       result = (
-        <div>
-          <form onSubmit={this.handleUpdate}>
+        <div className="Todo">
+          <form className="Todo-edit-form" onSubmit={this.handleUpdate}>
             <input 
               type="text" 
               value={this.state.taskEdit} 
@@ -55,11 +60,24 @@ export default class Todo extends Component {
       )
     } else{
       result = (
-        <li className="Todo">
-          {this.props.tarea}
-          <button className="Todo-Edit" onClick={this.toggleForm}>E</button>
-          <button className="Todo-Remove" onClick={this.handleClick}>X</button>
-        </li>
+        <div className="Todo">
+          <li  
+            className={
+              this.props.complete ? "Todo-Task completed" : "Todo-Task"
+            } 
+            onClick={this.handleToggle}
+          >
+            {this.props.tarea}
+          </li>
+          <div className="Todo-buttons">
+            <button className="Todo-Edit" onClick={this.toggleForm}>
+              <i class="fas fa-pen"/>
+            </button>
+            <button className="Todo-Remove" onClick={this.handleClick}>
+              <i class="fas fa-trash" />
+            </button>
+          </div>
+        </div>
       )
     }
     return result;

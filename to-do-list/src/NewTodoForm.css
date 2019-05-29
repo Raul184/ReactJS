@@ -1,0 +1,28 @@
+.NewToDoForm{
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+label{
+  margin-bottom: .5rem;
+  font-size: 1.1rem;
+  min-width: 100%;
+  text-align: left;
+}
+.NewToDoForm input{
+  flex-grow: 1;
+  border: none;
+  background: #f7f1f1;
+  padding: .8em;
+  font-size: initial;
+}
+button{
+  padding: .8em;
+  border: none;
+  background: #ff6666;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid rgba(255,255,255, .3);
+  margin-left: 5px;
+}
