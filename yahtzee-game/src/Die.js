@@ -14,11 +14,12 @@ class Die extends Component {
     this.props.handleClick(this.props.idx);
   }
   render() {
-    const { numWords, locked, val, disabled} = this.props;
+    const { numWords, locked, val, disabled, rolling} = this.props;
     //Dices
     let imag = `Die fas fa-dice-${numWords[(val - 1)]} fa-4x`;
     //Styles
-    if(locked) {imag += ' Die-locked'}
+    if(locked) imag += ' Die-locked';   //Lock dices 
+    if(rolling) imag += ' Die-rolling'; //animate dices
     return <i className={imag} onClick={this.handleClick} disabled={disabled}/>
   }
 }
