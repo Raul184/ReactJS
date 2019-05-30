@@ -77,10 +77,21 @@ class Game extends Component {
         locked: Array(NUM_DICE).fill(false)
       }));
     }
-    this.roll();
+    this.animateRoll();
+  }
+  displayRollInfo(){
+    //{this.state.rollsLeft} Rerolls Left
+    const messages = [
+      "0 Rolls left",
+      "1 Rolls left",
+      "2 Rolls Left",
+      "Starting Round"
+    ]
+    return messages[this.state.rollsLeft];
   }
 
   render() {
+    const { dice, locked, rollsLeft, rolling, scores} = this.state;
     return (
       <div className='Game'>
         <header className='Game-header'>
@@ -88,29 +99,31 @@ class Game extends Component {
 
           <section className='Game-dice-section'>
             <Dice
-              dice={this.state.dice}
-              locked={this.state.locked}
+              dice={dice}
+              locked={locked}
               handleClick={this.toggleLocked}
-              disabled={this.state.rollsLeft===0}
-              rolling={this.state.rolling}
+              disabled={rollsLeft===0}
+              rolling={rolling}
             />
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
                 disabled={
-                  this.state.locked.every(x => x) || this.state.rollsLeft === 0
+                  locked.every(x => x) || //all dices are locked 
+                  rollsLeft === 0 ||   // game over
+                  rolling        //rolling is happening
                 }
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {this.displayRollInfo()}
               </button>
             </div>
           </section>
         </header>
         <div className="test">
           {
-            typeof(this.state.dice[0]) === 'number' ? 
-              <ScoreTable doScore={this.doScore} scores={this.state.scores} /> :
+            typeof(dice[0]) === 'number' ? 
+              <ScoreTable doScore={this.doScore} scores={scores} /> :
               ""
           }
         </div>
