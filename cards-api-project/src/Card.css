@@ -1,0 +1,7 @@
+.Card{
+  position: absolute;
+  /* stack them */
+  left: 0;
+  right: 0;
+  margin: auto;
+}
