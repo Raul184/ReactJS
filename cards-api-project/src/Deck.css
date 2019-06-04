@@ -1,6 +1,27 @@
 .Deck-cardArea{
   margin-top: 80px;
 }
-.Deck-btn{
+.Deck-title{
+  color: azure;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+.subtitle{
+  font-size: 20px;
+}
+.Deck-btn {
   display: block;
+  background: none;
+  outline: none;
+  margin: 0.5em;
+  padding: 1em 2em;
+  color: #009688;
+  border: 2px solid;
+  transition: .35s; 
+}
+.Deck-btn:hover{
+  border-color: #4caf50;
+  color: white;
+  box-shadow: inset 0 0 0 2em #4caf50;
 }

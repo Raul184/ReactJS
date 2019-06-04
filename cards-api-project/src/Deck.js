@@ -61,10 +61,10 @@ export default class Deck extends Component {
     ))
     return (
       <div className="Deck">
-        <h1 style={{color: "white"}}>Card Dealer</h1>
-        <div className="Deck-cardArea">
-          {cardImg}
-        </div>
+        <h1 className="Deck-title" style={{color: "white"}}>Card Dealer</h1>
+        <h2 className="Deck-title subtitle">A little demo made with react</h2>
+        <div className="Deck-cardArea">{cardImg}</div>
+        
         <button className="Deck-btn" onClick={this.handleClick}>Give me more</button>
       </div>
     )
