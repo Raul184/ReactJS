@@ -15,34 +15,54 @@ export default class JokeList extends Component {
       jokes: JSON.parse(localStorage.getItem("jokes") || "[]"),
       loading: false 
     };
+     //Avoid duplicity on data collections
+    this.seenJokes = new Set(this.state.jokes.map( j => j.text));
     this.handleClick = this.handleClick.bind(this);
   }
-  //DID Mount
+  //0. DIDMount
   componentDidMount(){
     if(this.state.jokes.length === 0) this.getJokes();
   }
-  // JOKES Getter
+  //1. JOKES Getter
   async getJokes(){
-    let stock = [];
-    while (stock.length < this.props.num) {
-      //Get Jokes 
-      let joke = await axios.get(this.props.url, { headers: { Accept: "application/json" } 
-      });
-      //save Jokes
-      stock.push({ id: uuid(), text: joke.data.joke, votes: 0 });
-    }
-    //set them into State
-    this.setState( st => ({
-      loading: false,     //loader Animation
-      //what it's there + more
-      jokes: [...st.jokes , ...stock]
+    try{
+      let stock = [];
+      let nueJoke;
+      while (stock.length < this.props.num) {
+        //Get Jokes 
+        let joke = await axios.get(this.props.url, { headers: { Accept: "application/json" } 
+        });
+        //check for duplicates
+        nueJoke = joke.data.joke;
+        if(!this.seenJokes.has(nueJoke)){
+          //save Jokes
+          stock.push({ id: uuid(), text: joke.data.joke, votes: 0 });
+        } 
+        else 
+        {
+          console.log(`This one is a duplicate joke: ${nueJoke}`);
+        }
+      }
+      //set them into State
+      this.setState( st => ({
+        loading: false,     //loader Animation
+        //what it's there + more
+        jokes: [...st.jokes , ...stock]
       }),
       //save localStorage
       () => localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
-    );
-  }
+      );
+    } catch(e){
+        //drop notification
+        alert(e);
+        // get back to saved ones and display
+        this.setState({
+          loading: false
+        })
+      }
+  } 
   
-  //HANDLE Votes + -
+  //2. HANDLE Votes + -
   handleVote(id , delta){
      this.setState(
        st => ({
@@ -54,7 +74,7 @@ export default class JokeList extends Component {
       () => localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
     )
   }
-  // On Click
+  //3. ON CLICK + Jokes from API
   handleClick(){
     this.setState({ loading: true });
     //get jokes
@@ -70,6 +90,7 @@ export default class JokeList extends Component {
         </div>
       )
     }
+    let sortedJokes = this.state.jokes.sort((a,b) => b.votes - a.votes);
     return (
       <div className="JokeList">
         <div className="JokeList-sidebar">
@@ -83,7 +104,7 @@ export default class JokeList extends Component {
           <button className="JokeList-btn" onClick={this.handleClick}>New Jokes</button>
         </div>
         <div className="JokeList-jokes">
-        {this.state.jokes.map( joke => ( 
+        {sortedJokes.map( joke => ( 
           <Joke 
             key={joke.id} 
             id={joke.id} 

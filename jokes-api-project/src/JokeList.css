@@ -15,6 +15,8 @@
     0 15px 12px rgba(0, 0, 0, .1), 
     inset 0 0 25px #7e57c2; 
 }
+/* 
+  TITLE */
 .JokeList-title{
   font-size: 4rem;
   margin: 2rem;
@@ -26,6 +28,8 @@
   font-weight: 700;
   letter-spacing: 0;
 }
+/* 
+  IMAGE */
 .JokeList-sidebar img{
   width: 50%;
   border-radius: 50%;
@@ -33,6 +37,12 @@
               0 15px 12px rgba(0, 0, 0, .1) ,
               inset 0 0 25px #7e57c2;
   z-index: 2;
+}
+.JokeList-sidebar img:hover{
+  animation-name: shake-low;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
 }
 .JokeList-jokes{
   height: 90%;
@@ -46,4 +56,63 @@
 .JokeList-spinner{
   color: white;
   text-align: center;
+}
+.JokeList-btn{
+  font-size: 1rem;
+  color: white;
+  word-spacing: 1rem;
+  font-weight: 700;
+  width: 55%;
+  border-radius: 2rem;
+  margin: 2rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 10px 38px rgba(0, 0, 0, .2),
+              0 10px 12px rgba(0, 0, 0, .1);
+  background: linear-gradient(135deg,
+      rgba(179, 229, 252, 1) 50%,
+      rgba(240, 98, 146, 1) 50%,
+      rgba(240, 98, 146, 1) 100%);
+  cursor: pointer;
+  transition: .7s cubic-bezier(.2, 1, .2, 1);
+}
+.JokeList-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, .25);
+}
+
+/* SHAKING EFFECT */
+@keyframes shake-low{
+  0%{
+    transform: translate(0px , 0px) rotate(0deg);
+  }
+  10% {
+    transform: translate(5px, -6px) rotate(0deg);
+  }
+  20% {
+    transform: translate(1px, -4px) rotate(0deg);
+  }
+  30% {
+    transform: translate(6px, 1px) rotate(0.5deg);
+  }
+  40% {
+    transform: translate(5px, 2px) rotate(-1.5deg);
+  }
+  50% {
+    transform: translate(8px, -6px) rotate(2.5deg);
+  }
+  60% {
+    transform: translate(-1px, -2px) rotate(2.5deg);
+  }
+  70% {
+    transform: translate(0px, -8px) rotate(-2.5deg);
+  }
+  80% {
+    transform: translate(8px, -7px) rotate(-1.5deg);
+  }
+  90% {
+    transform: translate(-4px, 10px) rotate(-1.5deg);
+  }
+  100% {
+    transform: translate(10px, -9px) rotate(2.5deg);
+  }
 }
