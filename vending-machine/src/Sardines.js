@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
 import './Sardinces.css';
-
+import Message from './Message';
 export default class Sardines extends Component {
   render() {
     return (
@@ -11,8 +11,10 @@ export default class Sardines extends Component {
           backgroundImage: "url(https://media.giphy.com/media/tVk4w6EZ7eGNq/giphy.gif)" 
         }}
       > 
-      <h1>You don't eat Sardines, they EaT YoU!</h1>
-        <Link to='/'>Go Back</Link>
+        <Message>
+          <h1>You don't eat Sardines, they EaT YoU!</h1>
+          <Link to='/' className="Sardines-btn">Go Back</Link>
+        </Message>
       </div>
     )
   }

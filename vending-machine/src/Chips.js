@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import chipsImg from './Chips.png';
 import { Link } from 'react-router-dom';
-
+import Message from './Message';
 export default class Chips extends Component {
   constructor(props) {
     super(props);
@@ -15,8 +15,6 @@ export default class Chips extends Component {
      let x,y;
      y = window.innerHeight * Math.random();
      x = window.innerWidth * Math.random();
-     console.log(x);
-     console.log(y);
      this.setState(prevSt => ({
        bags: [...prevSt.bags , {x , y}]
      }));
@@ -34,10 +32,13 @@ export default class Chips extends Component {
     ))
     return (
       <div className="Chips">
-        <h1>Papas eaten: {this.state.bags.length}</h1>
+        <Message>
+          <h1>Papas eaten: {this.state.bags.length}</h1>
+          <Link to='/'>Go Back</Link>
+        </Message>
         {bags}
         <button className="Chips-btn" onClick={this.handleClick}>Ñam Ñam</button>
-        <Link to='/'>Go Back</Link>
+        
       </div>
     )
   }

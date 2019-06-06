@@ -1,4 +1,17 @@
+.Sardines {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .Sardines h1 {
   margin: 0;
   padding: 30px;
+}
+.Sardines-btn {
+  color: darkgray;
+  text-decoration: none;
+  transition: .2s;
 }

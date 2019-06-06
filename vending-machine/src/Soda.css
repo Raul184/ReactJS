@@ -2,3 +2,8 @@
   margin: 0;
   padding: 30px;
 }
+.Soda-btn {
+  color: darkgray;
+  text-decoration: none;
+  transition: .2s;
+}
