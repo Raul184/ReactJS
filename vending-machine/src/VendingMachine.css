@@ -1,0 +1,10 @@
+.VendingMachine{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* height: 800px; */
+}
+.VendingMachine h1{
+  margin: 0;
+  padding: 30px;
+}
