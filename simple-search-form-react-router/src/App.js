@@ -3,6 +3,7 @@ import './App.css';
 import {Switch , Route} from 'react-router-dom';
 import Food from './Food.js';
 import Meal from './Meal.js';
+import FoodSearch from './FoodSearch';
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
         exact
         path="/food/:foodName/drink/:drinkName"
         component={ Meal }
-       />
+       /> 
+       <Route exact path="/" render={(routeProps) => <FoodSearch {... routeProps} />}/>
      </Switch>
     </div>
   );
