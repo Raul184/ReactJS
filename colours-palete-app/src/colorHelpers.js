@@ -42,6 +42,7 @@ function generatePalette(starter){
   for (let level of levels){
     nuePalette.colors[level] = [];
   }
+  console.log(`1 : ${nuePalette}`);
   //create color and assign them
     for (let color of starter.colors){
       let scale = generator(color.color, 10).reverse();
@@ -50,7 +51,8 @@ function generatePalette(starter){
           name: `${color.name} ${levels[i]}`,
           id: color.name.toLowerCase().replace(/ /g, "-"),
           hex: scale[i],
-          rgb: chroma(scale[i]).css() //give me an rgb color
+          rgb: chroma(scale[i]).css(), //give me an rgb color
+          rgba: chroma(scale[i]).css().replace("rgb" , "rgba").replace(")" , ",1.0)")
         });
       }
     }
