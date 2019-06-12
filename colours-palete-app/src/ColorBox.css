@@ -80,9 +80,9 @@
 }
 .OverlayInCopy.show{ /* show is a class to be added on COPY */
   opacity: 1;
-  transform: scale(9);
+  transform: scale(1);
   z-index: 10;
-  position: absolute;
+  /* position: absolute;  Under investigation */
 } 
 /* text on background */
 .Overlay-msg{
