@@ -1,0 +1,9 @@
+.ColorBox{
+  width: 20%;
+  /* height of the palette (Parent) */
+  height: 25%; 
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
