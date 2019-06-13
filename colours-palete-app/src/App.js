@@ -5,12 +5,13 @@ import Palette from './Palette';
 import seedColors from './seedColors';
 //colors generator
 import {generatePalette} from "./colorHelpers";
+//id
+const uuidv4 = require('uuid/v4');
 
 function App() {
-  console.log(generatePalette(seedColors[4]))
   return (
     <div className="App">
-      <Palette allColors ={seedColors[4]}/>      
+      <Palette generate ={generatePalette(seedColors[4])}/>      
     </div>
   );
 }

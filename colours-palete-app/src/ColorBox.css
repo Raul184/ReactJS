@@ -78,11 +78,12 @@
   transition: transform .4s ease-in-out;
   transform: scale(0.1);
 }
-.OverlayInCopy.show{ /* show is a class to be added on COPY */
+.OverlayInCopy.show {
+  /* show is a class to be added on COPY */
   opacity: 1;
-  transform: scale(1);
+  transform: scale(10);
   z-index: 10;
-  /* position: absolute;  Under investigation */
+  position: absolute;  
 } 
 /* text on background */
 .Overlay-msg{

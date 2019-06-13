@@ -31,33 +31,7 @@ import chroma from 'chroma-js';
 
 const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-function generatePalette(starter){
-  let nuePalette = {
-    name: starter.paletteName,
-    id: starter.id,
-    emoji: starter.emoji,
-    colors:{}
-  }
-  //set level for every color
-  for (let level of levels){
-    nuePalette.colors[level] = [];
-  }
-  console.log(`1 : ${nuePalette}`);
-  //create color and assign them
-    for (let color of starter.colors){
-      let scale = generator(color.color, 10).reverse();
-      for (let i in scale){
-        nuePalette.colors[levels[i]].push({
-          name: `${color.name} ${levels[i]}`,
-          id: color.name.toLowerCase().replace(/ /g, "-"),
-          hex: scale[i],
-          rgb: chroma(scale[i]).css(), //give me an rgb color
-          rgba: chroma(scale[i]).css().replace("rgb" , "rgba").replace(")" , ",1.0)")
-        });
-      }
-    }
-  return nuePalette;
-};
+
 //helper for generator  ----------------------------------
 function getRange(hexColor){
   const end = "#fff";
@@ -75,6 +49,33 @@ function generator(hexColor , num){
   //generate num colors of this range
   return chroma.scale(getRange(hexColor)).mode("lab").colors(num);
 }
+
+function generatePalette(starter) {
+  let nuePalette = {
+    name: starter.paletteName,
+    id: starter.id,
+    emoji: starter.emoji,
+    colors: {}
+  }
+  //set level for every color
+  for (let level of levels) {
+    nuePalette.colors[level] = [];
+  }
+  //create color and assign them
+  for (let color of starter.colors) {
+    let scale = generator(color.color, 10).reverse();
+    for (let i in scale) {
+      nuePalette.colors[levels[i]].push({
+        name: `${color.name} ${levels[i]}`,
+        id: color.name.toLowerCase().replace(/ /g, "-"),
+        hex: scale[i],
+        rgb: chroma(scale[i]).css(), //give me an rgb color
+        rgba: chroma(scale[i]).css().replace("rgb", "rgba").replace(")", ",1.0)")
+      });
+    }
+  }
+  return nuePalette;
+};
 //  --------------------------------------------------------------------
 
 export {generatePalette}

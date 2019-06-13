@@ -7,3 +7,26 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+/* SLIDER STYLES */
+.slider{
+  width: 340px;
+  margin: 0px 10px;
+  display: inline-block;
+}
+.rc-slider-rail ,
+.rc-slider-track{
+  height: 6px;
+}
+.rc-slider-track {
+  background: rgb(73, 199, 193);
+}
+.rc-slider-handle{
+  border:2px solid lightseagreen;
+  margin-top: -4px;
+}
+.rc-slider-handle:active{
+  border:2px solid lightseagreen;
+  outline: none;
+  margin-top: -4px;
+}
