@@ -74,6 +74,7 @@ function generatePalette(starter) {
       });
     }
   }
+  console.log(nuePalette);
   return nuePalette;
 };
 //  --------------------------------------------------------------------
