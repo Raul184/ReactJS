@@ -1,0 +1,16 @@
+.Navbar{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 6vh;
+  background: #c2d6e4;
+  font-family: 'Roboto',sans-serif;
+}
+.logo{
+  padding: 10px 25px;
+  font-size: 22px;
+}
+.logo a{
+  text-decoration: none;
+  color: black;
+}
