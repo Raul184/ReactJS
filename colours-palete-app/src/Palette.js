@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
+import Footer from './Footer';
+//css
 import './Palette.css';
-
 //key 
 const uuidv4 = require('uuid/v4');
 
@@ -30,11 +31,11 @@ export default class Palette extends Component {
   }
   render() {
     //Shortcuts
-    const { colors } = this.props.generate
+    const { colors, name, emoji } = this.props.generate
     const { level } = this.state;
     //Colors per palette
     const palette = colors[this.state.level].map( color => (
-      <ColorBox background={color[this.state.format]} name={color.name} />
+      <ColorBox key={ uuidv4() } background={color[this.state.format]} name={color.name} />
     ))
     return (
       <div className="Palette">
@@ -42,7 +43,7 @@ export default class Palette extends Component {
         <div className="Palette-colors">
          {palette}
         </div>
-      {/* Footer */}
+        <Footer flagName={name} emoji={emoji}/>
       </div>
     )
   }
