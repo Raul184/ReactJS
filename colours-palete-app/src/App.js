@@ -20,7 +20,9 @@ export default class App extends Component {
   render(){
   return (
     <Switch>
-      <Route exact path='/' render={ () => <PaletteList palette={seedColors} /> } />
+      {/* HOME */}
+      <Route exact path='/' render={ (routeProps) => <PaletteList palette={seedColors} {...routeProps}/> } />
+      {/* Color Palette */}
       <Route exact path="/palette/:id" render={
         (routeProps) =>  
           <div className="App">
@@ -28,6 +30,8 @@ export default class App extends Component {
           </div>                   
         }  
       />
+      {/* Single Color Palette */}
+      <Route exact path="/palette/:paletteId/:colorId" render={() => <h1>Single Color Page</h1>}/>
     </Switch>
   )};
 }

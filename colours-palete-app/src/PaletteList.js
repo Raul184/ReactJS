@@ -39,18 +39,26 @@ const styles = {
   }
 }
 class PaletteList extends Component {
+  //handleClick
+  handleClick(id){
+    this.props.history.push(`/palette/${id}`);
+  }
   render() {
     const {palette , classes} = this.props;
     return (
       <div className={classes.root}>
-        <div className={classes.container}>         {/* GRID */}
-          <nav className={classes.nav}>             {/* Section 1 */} 
-            <h1>React Colors</h1>
-            <Link to="/" className={classes.lnk}>Create Palete</Link>
+        <div className={classes.container}>               {/* GRID */}
+          <nav className={classes.nav}>                   {/* Section 1 */} 
+            <h1>
+              React Colors
+            </h1>
+            <Link to="/" className={classes.lnk}>
+              Create Palete
+            </Link>
           </nav>
-          <div className={classes.palettes}>        {/* Section 2 */}
+          <div className={classes.palettes}>              {/* Section 2 */}
             {palette.map(p =>
-              <MiniPalette key={p.id} {...p}></MiniPalette>
+              <MiniPalette key={p.id} {...p} handleClick={() => this.handleClick(p.id)}></MiniPalette>
             )
             }
           </div> 
