@@ -7,6 +7,7 @@ import seedColors from './seedColors';
 import {generatePalette} from "./colorHelpers";
 //ROUTER
 import { Route , Switch } from "react-router-dom";
+import PaletteList from "./PaletteList";
 //id
 const uuidv4 = require('uuid/v4');
 
@@ -19,7 +20,7 @@ export default class App extends Component {
   render(){
   return (
     <Switch>
-      <Route exact path='/' render={ () => <h1>works</h1> } />
+      <Route exact path='/' render={ () => <PaletteList palette={seedColors} /> } />
       <Route exact path="/palette/:id" render={
         (routeProps) =>  
           <div className="App">
