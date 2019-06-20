@@ -23,6 +23,7 @@ export default [
       { name: "deeporange", color: "#FF5722" },
       { name: "brown", color: "#795548" },
       { name: "grey", color: "#9E9E9E" },
+      { name: "grey", color: "#9A1E9E" },
       { name: "bluegrey", color: "#607D8B" }
     ]
   },
