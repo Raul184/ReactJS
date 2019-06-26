@@ -8,6 +8,8 @@ import {generatePalette} from "./colorHelpers";
 //ROUTER
 import { Route , Switch } from "react-router-dom";
 import PaletteList from "./PaletteList";
+//Single Color Component
+import SingleColorPalette from "./SingleColorPalette";
 //id
 const uuidv4 = require('uuid/v4');
 
@@ -22,6 +24,7 @@ export default class App extends Component {
     <Switch>
       {/* HOME */}
       <Route exact path='/' render={ (routeProps) => <PaletteList palette={seedColors} {...routeProps}/> } />
+
       {/* Color Palette */}
       <Route exact path="/palette/:id" render={
         (routeProps) =>  
@@ -31,7 +34,13 @@ export default class App extends Component {
         }  
       />
       {/* Single Color Palette */}
-      <Route exact path="/palette/:paletteId/:colorId" render={() => <h1>Single Color Page</h1>}/>
+      <Route exact path="/palette/:paletteId/:colorId" 
+             render={(routeProps) => 
+        <SingleColorPalette
+          palette={generatePalette(this.findPalette(routeProps.match.params.paletteId))}
+          colorId={routeProps.match.params.colorId} 
+        />}
+      />
     </Switch>
   )};
 }
