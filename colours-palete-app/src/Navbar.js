@@ -47,6 +47,8 @@ export default class Navbar extends Component {
         <div className="logo">
           <Link to="/">React Color Picker</Link>
         </div>
+        {/* DISPLAY NAVIGATION */}
+        {this.props.gamasColor &&
         <div className="slider-container">
           <span>Level :</span>
           <div className="slider">
@@ -60,6 +62,7 @@ export default class Navbar extends Component {
           </div>
           <span><em>{this.props.level}</em></span>
         </div>
+        }
         <div className="select-container">
           <Select value={this.state.format} onChange={this.handleChange}>
             <MenuItem value="hex">HEX - #ffffff</MenuItem>

@@ -22,7 +22,6 @@ export default class Palette extends Component {
   changeLevel(level){
     this.setState({level});
   }
-
   // on SElecT handleChange
   handleChange(value){
     this.setState({
@@ -46,7 +45,7 @@ export default class Palette extends Component {
     ))
     return (
       <div className="Palette">
-        <Navbar level={level} changeLevel={this.changeLevel} handleChange={this.handleChange}/> 
+        <Navbar level={level} changeLevel={this.changeLevel} handleChange={this.handleChange} gamasColor/> 
         <div className="Palette-colors">
          {palette}
         </div>

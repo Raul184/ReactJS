@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ColorBox from "./ColorBox";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
 //id
 const uuidv4 = require('uuid/v4');
@@ -9,7 +10,10 @@ export default class SingleColorPalette extends Component {
     super(props);
     //instance way of doing it
     this._shades = this.gatherShades(this.props.palette , this.props.colorId);
-    console.log(this._shades);
+    this.state = {
+      format: "hex"
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
   //helper
   gatherShades(palette, colorF){ 
@@ -22,16 +26,24 @@ export default class SingleColorPalette extends Component {
     }
     return selectedOnes;
   }
+  // on SElecT handleChange
+  handleChange(value) {
+    this.setState({
+      format: value
+    })
+  }
   render() {
-    const {emoji, name} = this.props;
+    const {palette} = this.props;
+    //state update
+    const {format} = this.state;
     const colorBoxes = this._shades.map( 
-      color => <ColorBox key={uuidv4()} name={color.name} background={color.hex} showLink={false}/>
+      color => <ColorBox key={uuidv4()} name={color.name} background={color[format]} showLink={false}/>
     )
     return (
       <div className="Palette">
-        <h1>TOMATE</h1>
+        <Navbar handleChange={this.handleChange} gamasColor={false}/>
         <div className="Palette-colors">{colorBoxes}</div>
-        <Footer flagName={name} emoji={emoji} />
+        <Footer flagName={palette.name} emoji={palette.emoji} />
       </div>
     )
   }
