@@ -9,7 +9,22 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-
+.Palette-colors .goBack{
+  background-color: black;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Palette-colors .goBack .backBtn{
+  color: white;
+  text-decoration: none;
+  padding: 6px 8px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
 /* SLIDER STYLES */
 .slider{
   width: 340px;

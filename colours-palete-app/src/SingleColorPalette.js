@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ColorBox from "./ColorBox";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 //id
 const uuidv4 = require('uuid/v4');
 
@@ -24,7 +25,7 @@ export default class SingleColorPalette extends Component {
         allC[key].filter( color => color.id === colorF)
       );
     }
-    return selectedOnes;
+    return selectedOnes.slice(1);
   }
   // on SElecT handleChange
   handleChange(value) {
@@ -42,7 +43,12 @@ export default class SingleColorPalette extends Component {
     return (
       <div className="SingleColorPalette Palette">
         <Navbar handleChange={this.handleChange} gamasColor={false}/>
-        <div className="Palette-colors">{colorBoxes}</div>
+        <div className="Palette-colors">
+          {colorBoxes}
+          <div className="goBack ColorBox">
+            <Link to={`/palette/${palette.id}`} className="backBtn">Go Back</Link>
+          </div>
+        </div>
         <Footer flagName={palette.name} emoji={palette.emoji} />
       </div>
     )
