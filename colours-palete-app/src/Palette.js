@@ -35,7 +35,14 @@ export default class Palette extends Component {
     const { level } = this.state;
     //Colors per palette
     const palette = colors[this.state.level].map( color => (
-      <ColorBox key={ uuidv4() } color={color.id} paletteId={id} background={color[this.state.format]} name={color.name} />
+      <ColorBox 
+        key={ uuidv4() } 
+        color={color.id} 
+        paletteId={id} 
+        background={color[this.state.format]} 
+        name={color.name} 
+        showLink={true}  
+      />
     ))
     return (
       <div className="Palette">

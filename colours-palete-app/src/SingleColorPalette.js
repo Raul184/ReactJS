@@ -25,11 +25,12 @@ export default class SingleColorPalette extends Component {
   render() {
     const {emoji, name} = this.props;
     const colorBoxes = this._shades.map( 
-      color => <ColorBox key={uuidv4()} name={color.name} colorFormat={color.hex}/>
+      color => <ColorBox key={uuidv4()} name={color.name} background={color.hex} showLink={false}/>
     )
     return (
-      <div className="SingleColorPalette">
-        <div>{colorBoxes}</div>
+      <div className="Palette">
+        <h1>TOMATE</h1>
+        <div className="Palette-colors">{colorBoxes}</div>
         <Footer flagName={name} emoji={emoji} />
       </div>
     )
