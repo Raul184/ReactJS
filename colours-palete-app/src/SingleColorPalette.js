@@ -40,7 +40,7 @@ export default class SingleColorPalette extends Component {
       color => <ColorBox key={uuidv4()} name={color.name} background={color[format]} showLink={false}/>
     )
     return (
-      <div className="Palette">
+      <div className="SingleColorPalette Palette">
         <Navbar handleChange={this.handleChange} gamasColor={false}/>
         <div className="Palette-colors">{colorBoxes}</div>
         <Footer flagName={palette.name} emoji={palette.emoji} />
