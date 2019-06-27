@@ -1,26 +1,27 @@
 import React from 'react'
+// MENU 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+// COLOR PICKER
+import { SketchPicker } from 'react-color';
+//BUTTONS on Color Picker
+import Button from '@material-ui/core/Button';
+//TEXT FIEld
+import TextField from '@material-ui/core/TextField';
+import ColorBox from './ColorBox';
 
 //STYLES
-const drawerWidth = 240;
-
+const drawerWidth = 350;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -80,8 +81,15 @@ const useStyles = makeStyles(theme => ({
 export default function NewPaletteForm() {
   const classes = useStyles();
   const theme = useTheme();
+  // Hooks 
+  //Menu
   const [open, setOpen] = React.useState(false);
+  //Color set on Btn
+  const [color, setColor] = React.useState("red");
+  //Colors rendered
+  const [colors , setColors] = React.useState(["blue"]);
 
+  // HANDLERS
   function handleDrawerOpen() {
     setOpen(true);
   }
@@ -89,7 +97,14 @@ export default function NewPaletteForm() {
   function handleDrawerClose() {
     setOpen(false);
   }
+  const handleColorChange = (nueColor) => {
+    setColor(nueColor.hex);
+  }
 
+  const handleColors = () => {
+    setColors([...colors , color])
+    console.log(colors);
+  }
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -128,24 +143,37 @@ export default function NewPaletteForm() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
+        {/* 
+        NAV LEFT
+        */}
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
+        <Typography variant="h4">
+          Design your palette
+        </Typography>
+        <div>
+          <Button variant="contained" color="secondary">
+            Clear Palette
+          </Button>
+          <Button variant="contained" color="primary">
+            Random Color
+          </Button>
+        </div>
+        <SketchPicker color={color} 
+                      onChangeComplete={handleColorChange} />
+        {/* 
+        TextField 
+        */}
+        <TextField
+          id="standard-with-placeholder"
+          label="Name your palette! xD"
+          // placeholder="Placeholder"
+          className={classes.textField}
+          margin="normal"
+        />
+        <Button variant="contained" color="primary" style={{backgroundColor: color}}
+                onClick={handleColors}>
+          ADD COLOR
+        </Button>
       </Drawer>
       <main
         className={clsx(classes.content, {
@@ -153,6 +181,7 @@ export default function NewPaletteForm() {
         })}
       >
         <div className={classes.drawerHeader} />
+        {colors.map(color => <ColorBox className="ColorBox" background={color} />)}
       </main>
     </div>
   );
