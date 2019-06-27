@@ -52,7 +52,7 @@ class PaletteList extends Component {
             <h1>
               React Colors
             </h1>
-            <Link to="/" className={classes.lnk}>
+            <Link to="/palette/NewPalette" className={classes.lnk}>
               Create Palete
             </Link>
           </nav>
