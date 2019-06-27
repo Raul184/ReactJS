@@ -50,8 +50,18 @@
   padding: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: .7rem;
 }
+/* 
+  LUMINANCE ON COLOR CHANGES 
+*/
+.light-text{
+  color: white;
+}
+.ColorBox .dark-text{
+  color: black;
+}
+
 /* 
   MORE 
 */
@@ -62,6 +72,7 @@
   right: 0;
   margin: 0;
   font-size: 14px;
+  color: white;
   width: 60px;
   height: 30px;
   background: rgba(255, 255, 255, .3);
