@@ -10,7 +10,7 @@ const styles = {
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-5px",
+    marginBottom: "-1px",
   }
 };
 

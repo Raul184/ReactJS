@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import lifecycle from 'react-pure-lifecycle';
 // MENU 
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -17,10 +18,12 @@ import { SketchPicker } from 'react-color';
 //BUTTONS on Color Picker
 import Button from '@material-ui/core/Button';
 //TEXT FIEld
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import DraggableColorBox from './DraggableColorBox'
 // VALIDATOR Form
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+//Key
+const uuidv4 = require('uuid/v4');
 
 //STYLES
 const drawerWidth = 350;
@@ -81,32 +84,51 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NewPaletteForm() {
-  const classes = useStyles();
-  const theme = useTheme();
+export default class NewPaletteForm extends Component {
+  classes = useStyles();
+  theme = useTheme();
   // Hooks 
   //Menu
   const [open, setOpen] = React.useState(false);
   //Color set on Btn
   const [color, setColor] = React.useState("red");
   //Colors rendered
-  const [colors , setColors] = React.useState(["blue"]);
-
+  const [colors , setColors] = React.useState([{color , name: 'default'}]);
+  //Naming new Palettes
+  const [nueName, setNueName] = React.useState();
   // HANDLERS
-  function handleDrawerOpen() {
+  handleDrawerOpen() {
     setOpen(true);
   }
 
-  function handleDrawerClose() {
+  handleDrawerClose() {
     setOpen(false);
   }
-  const handleColorChange = (nueColor) => {
+  handleColorChange = (nueColor) => {
     setColor(nueColor.hex);
   }
 
-  const handleColors = () => {
-    setColors([...colors , color])
+  handleColors = () => {
+    //Format 
+    const nue = {
+      color,
+      name: nueName
+    }
+    setColors([...colors , nue])
+    console.log(colors);
   }
+
+  const handleNameChange = (e) => {
+    setNueName(e.target.value)
+  }
+
+  componentDidMount(props) {
+      ValidatorForm.addValidationRule('isColorNameUnique', (value) =>
+        this.props.colors.every(
+          ({ name }) => name.toLowerCase() !== value.toLowerCase()
+        )
+      );
+    }
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -160,23 +182,36 @@ export default function NewPaletteForm() {
             Random Color
           </Button>
         </div>
-        
+
         <SketchPicker color={color} 
-                      onChangeComplete={handleColorChange} />
+                      onChangeComplete={handleColorChange}
+        />
+
+        {/* IMPORTED FORM */}
+        <ValidatorForm onSubmit={handleColors}>
+          <TextValidator
+            value={nueName}
+            onChange={handleNameChange}
+            validators={["required", "isColorNameUnique"]}
+            errorMessages={["this field is required", "Color name already taken"]}
+          />
+        </ValidatorForm>
+        {/* IMPORTED FORM */}
+        <Button variant="contained" color="primary"
+          type="submit" style={{ backgroundColor: color }}>
+          ADD COLOR
+          </Button>
         {/* 
         TextField 
         */}
-        <TextField
+        {/* <TextField
           id="standard-with-placeholder"
           label="Name your palette! xD"
           // placeholder="Placeholder"
           className={classes.textField}
           margin="normal"
-        />
-        <Button variant="contained" color="primary" style={{backgroundColor: color}}
-                onClick={handleColors}>
-          ADD COLOR
-        </Button>
+        /> */}
+        
       </Drawer>
       <main
         className={clsx(classes.content, {
@@ -184,7 +219,7 @@ export default function NewPaletteForm() {
         })}
       >
         <div className={classes.drawerHeader} />
-        {colors.map(color => <DraggableColorBox background={color} />)}
+        {colors.map(color => <DraggableColorBox key={uuidv4()}  background={color.color} name={color.name} />)}
       </main>
     </div>
   );
