@@ -18,7 +18,9 @@ import { SketchPicker } from 'react-color';
 import Button from '@material-ui/core/Button';
 //TEXT FIEld
 import TextField from '@material-ui/core/TextField';
-import ColorBox from './ColorBox';
+import DraggableColorBox from './DraggableColorBox'
+// VALIDATOR Form
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 //STYLES
 const drawerWidth = 350;
@@ -62,12 +64,13 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
+    height: "calc(100vh - 64px)",
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: -drawerWidth,
+    marginLeft: -drawerWidth
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -103,7 +106,6 @@ export default function NewPaletteForm() {
 
   const handleColors = () => {
     setColors([...colors , color])
-    console.log(colors);
   }
   return (
     <div className={classes.root}>
@@ -158,6 +160,7 @@ export default function NewPaletteForm() {
             Random Color
           </Button>
         </div>
+        
         <SketchPicker color={color} 
                       onChangeComplete={handleColorChange} />
         {/* 
@@ -181,7 +184,7 @@ export default function NewPaletteForm() {
         })}
       >
         <div className={classes.drawerHeader} />
-        {colors.map(color => <ColorBox className="ColorBox" background={color} />)}
+        {colors.map(color => <DraggableColorBox background={color} />)}
       </main>
     </div>
   );
