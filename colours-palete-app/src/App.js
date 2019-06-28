@@ -10,8 +10,6 @@ import { Route , Switch } from "react-router-dom";
 import PaletteList from "./PaletteList";
 //Single Color Component
 import SingleColorPalette from "./SingleColorPalette";
-// Create new Palette form component
-import NewPalette from "./NewPaletteForm";
 
 //id
 const uuidv4 = require('uuid/v4');
@@ -30,7 +28,7 @@ export default class App extends Component {
 
       {/* Create a new Palete */}
       <Route exact path="/palette/newPalette"
-        render={() => <NewPalette />}
+        render={() => <h1>Hello</h1>}
       />
 
       {/* Color Palette */}
