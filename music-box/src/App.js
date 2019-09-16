@@ -3,7 +3,7 @@ import './App.css';
 //icon
 import { FaSearch } from 'react-icons/fa';
 import Artist from './Artist';
-
+import Tracks from './Tracks';
 
 export default class App extends Component {
   state = {
@@ -62,6 +62,7 @@ export default class App extends Component {
         />
         <button onClick={this.getArtist}><FaSearch/></button>  
         <Artist artist={this.state.artist} />   
+        <Tracks tracks={this.state.tracks} />
       </>
     )
   }

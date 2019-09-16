@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export default function Artist({artist}) {
     //Empty ?   => nothing
     if(!artist) return null
-
+    console.log(artist);
     const {images , name , followers, genres } = artist;
     return (
         <div className="Artist">
@@ -22,4 +23,8 @@ export default function Artist({artist}) {
           />        
         </div>
     )
+}
+
+Artist.propTypes = {
+  artist : PropTypes.object.isRequired,
 }
