@@ -40,6 +40,7 @@ export default class App extends Component {
         //Get best Artist tracks
         const reqII = await fetch(`https://spotify-api-wrapper.appspot.com/artist/${this.state.artist.id}/top-tracks`);
         const resII = await reqII.json();
+        console.log(resII.tracks);
         this.setState({
           tracks : resII.tracks
         });
@@ -60,7 +61,7 @@ export default class App extends Component {
           onKeyPress={this.handleEnter}
           placeholder='Seach artists' 
         />
-        <button onClick={this.getArtist}><FaSearch/></button>  
+        <button onClick={() => this.getArtist}><FaSearch/></button>  
         <Artist artist={this.state.artist} />   
         <Tracks tracks={this.state.tracks} />
       </>
