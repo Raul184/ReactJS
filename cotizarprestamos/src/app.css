@@ -26,3 +26,17 @@ h1{
   font-size: 2rem;
   font-weight: lighter;
 }
+.Form h4{
+  text-align: center;
+}
+input[type='submit']:disabled{
+  opacity: .2;
+  color: #000851;
+}
+p{
+  text-align: center;
+}
+.Results{
+  border: 2px solid #00b0d7;
+  padding: 3rem 0;
+}

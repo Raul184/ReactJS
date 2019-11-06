@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import Results from './Results';
+import Spinner from './Spinner';
 
 export default class Form extends Component {
   state = {
     cantidad : '' ,
-    plazo: ''
+    plazo: '' ,
+    total: null,
+    loading: false
   }
 
   handleChange = (e) => {
@@ -15,15 +19,24 @@ export default class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { cantidad , plazo } = this.state;
-    this.props.calculo(cantidad , plazo)
+    this.setState({
+      loading: true
+    }, () => {
+      setTimeout( () => {
+        this.setState({
+          total: this.props.calculo(Number(cantidad) , Number(plazo)) ,
+          loading: false
+        })
+      }, 2000)
+    })
   }
   render() {
-    const {cantidad , plazo} = this.state;
+    const {cantidad , plazo , total , loading} = this.state;
     return (
         <form className="Form">
-          <label htmlFor="cantidad">Total to borrow:</label>
+          <label htmlFor="cantidad"><h3>Total to borrow:</h3></label>
           <input type="number" name='cantidad' className='u-full-width' onChange={this.handleChange}/>
-          <label htmlFor="plazo">Terms
+          <label htmlFor="plazo"><h3>Plazos</h3>
             <select name="plazo" id="x"className='u-full-width' onChange={this.handleChange}>
               <option value="">Select</option>
               <option value="3">3</option>
@@ -38,6 +51,20 @@ export default class Form extends Component {
             onClick={this.handleSubmit}
             disabled={ !cantidad && !plazo ? true : false}
           />
+          {
+            !this.state.total && !this.state.loading  ? 
+            (
+              <p>Complete su cantidad a prestar y los plazos a devolver</p>
+            ):
+            this.state.loading?
+            (
+              <Spinner />
+            ):
+            (
+              <Results cantidad={cantidad} plazo={plazo} total={total} loading={loading}/>
+            )
+          }
+          
         </form>
     )
   }
