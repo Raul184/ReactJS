@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { MdDelete , MdEdit } from 'react-icons/md'
-
+import { Context } from '../context/contextState'
 
 const ExpenseItem = ({item}) => {
-  const { desc , amount } = item
+  const { id , desc , amount } = item
+  const { removeExp } = useContext(Context)
   return (
     <li className="item">
       <div className="info">
@@ -14,7 +15,11 @@ const ExpenseItem = ({item}) => {
         <button className="edit-btn" aria-label="edit button">
           <MdEdit />
         </button>
-        <button className="clear-btn" aria-label="delete button">
+        <button 
+          className="clear-btn" 
+          aria-label="delete button"
+          onClick={() => removeExp(id)}
+        >
           <MdDelete />
         </button>
       </div>

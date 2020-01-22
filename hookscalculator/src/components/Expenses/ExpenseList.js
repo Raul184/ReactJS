@@ -1,19 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import ExpenseItem from './ExpenseItem'
 import { MdDelete } from 'react-icons/md'
+import { Context } from '../context/contextState'
 
-
-const ExpenseList = ({ list }) => {
-  const handleClick = () => {
-    console.log('clicked');
-  }
+const ExpenseList = () => {
+  const { expenses , clearExp } = useContext(Context);
   return (
     <>
       <ul className="list">
-      { list.map( el => ( <ExpenseItem key={el.id} item={el} />))}
+      { expenses.map( el => ( <ExpenseItem key={el.id} item={el} />))}
       </ul>
-      { list.length > 0 && (
-        <button className="btn" onClick={handleClick}>
+      { expenses.length > 0 && (
+        <button className="btn" onClick={() => clearExp() }>
           Clear Expenses
           <MdDelete className="btn-icon" />
         </button>

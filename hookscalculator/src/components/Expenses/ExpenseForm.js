@@ -1,7 +1,10 @@
-import React , { useState } from 'react'
+import React , { useState , useContext } from 'react'
 import { MdSend } from 'react-icons/md'
+import { Context } from '../context/contextState'
 
-const ExpenseForm = ({ add , expenses}) => {
+
+const ExpenseForm = () => {
+  const { addExp } = useContext(Context)
   const [ data , setData ] = useState({
     desc: '' , 
     amount: ''
@@ -11,7 +14,10 @@ const ExpenseForm = ({ add , expenses}) => {
   const handleSubmit = e => {
     e.preventDefault()
     if( desc.length > 0 && amount > 0){
-
+      addExp(data)
+      //clear UI
+      setTimeout(
+        () => { setData({ desc: '' , amount: '' })}, 500)
     }
     else {
       //alert
@@ -27,7 +33,7 @@ const ExpenseForm = ({ add , expenses}) => {
     <form onSubmit={handleSubmit}>
       <div className="form-center">
         <div className="form-group">
-          <label htmlFor="charge">charge</label>
+          <label htmlFor="desc">charge</label>
           <input 
             type="text" 
             className="form-control" 
