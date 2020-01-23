@@ -4,7 +4,7 @@ import { Context } from '../context/contextState'
 
 const ExpenseItem = ({item}) => {
   const { id , desc , amount } = item
-  const { removeExp } = useContext(Context)
+  const { removeExp , editExp } = useContext(Context) 
   return (
     <li className="item">
       <div className="info">
@@ -12,7 +12,11 @@ const ExpenseItem = ({item}) => {
         <span className="amount">$ {amount}</span>
       </div>
       <div className="icons">
-        <button className="edit-btn" aria-label="edit button">
+        <button 
+          className="edit-btn" 
+          aria-label="edit button"
+          onClick={() => editExp(id)}
+        >
           <MdEdit />
         </button>
         <button 

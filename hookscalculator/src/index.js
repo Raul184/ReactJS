@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Provider from './components/context/contextState'
 import App from './App';
-
 ReactDOM.render(
-  <App /> , 
+  <Provider>
+    <App /> 
+  </Provider>, 
   document.getElementById('root')
 );

@@ -1,34 +1,17 @@
-import React , { useState , useContext } from 'react'
+import React , { useContext } from 'react'
 import { MdSend } from 'react-icons/md'
 import { Context } from '../context/contextState'
 
 
 const ExpenseForm = () => {
-  const { addExp } = useContext(Context)
-  const [ data , setData ] = useState({
-    desc: '' , 
-    amount: ''
-  })
-  const { desc , amount } = data;
-
-  const handleSubmit = e => {
-    e.preventDefault()
-    if( desc.length > 0 && amount > 0){
-      addExp(data)
-      //clear UI
-      setTimeout(
-        () => { setData({ desc: '' , amount: '' })}, 500)
-    }
-    else {
-      //alert
-    }
-  }
-  const handleChange = e => {
-    setData({
-      ...data , 
-      [e.target.name] : e.target.value 
-    })
-  }
+  const { 
+    amount , 
+    desc , 
+    handleAmount , 
+    handleDesc , 
+    handleSubmit , 
+    edit } = useContext(Context)
+  
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-center">
@@ -40,7 +23,7 @@ const ExpenseForm = () => {
             name="desc" 
             placeholder="bills.."
             value={desc}
-            onChange={handleChange}
+            onChange={handleDesc}
           />
         </div>
         <div className="form-group">
@@ -51,12 +34,12 @@ const ExpenseForm = () => {
             name="amount" 
             placeholder="amount"
             value={amount}
-            onChange={handleChange}
+            onChange={handleAmount}
           />
         </div>
       </div>
       <button type="submit" className="btn">
-        Submit
+        {edit ? "Edit" : "Submit"}
         <MdSend className="btn-icon"/>
       </button>
     </form>
