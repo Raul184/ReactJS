@@ -117,6 +117,21 @@ nav{
 
 // FOOTER
 .footer{
+  width: 100%;
   position: fixed;
   bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .logoF{
+    background: url(https://static-mh.content.disney.io/starwars/assets/navigation/sw_logo_stacked-336c62367939.png)center no-repeat;
+    background-size: contain;
+    display: block;
+    width: 8rem;
+    height: 3rem;
+  }
+  p{
+    color: #aaa;
+  }
 }

@@ -4600,11 +4600,18 @@ const Footer = () => {
       lineNumber: 8
     },
     __self: undefined
+  }, __jsx("section", {
+    className: "logoF",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 10
     },
     __self: undefined
   }, __jsx("a", {
@@ -4613,21 +4620,13 @@ const Footer = () => {
       lineNumber: 10
     },
     __self: undefined
-  }, __jsx("img", {
-    src: "../../public/assets/img/logo.png",
-    alt: "Star Wars logo",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: undefined
   }))), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 12
     },
     __self: undefined
-  }, "All rights reserved to Murciegalo Inc. \xA9")));
+  }, "All rights reserved to Murciegalo Inc. 2020 \xA9 ")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Footer);

@@ -6,12 +6,10 @@ const Footer = () => {
   return (
     <>
       <section className="footer">
-        <Link href='/'>
-          <a>
-          <img src="../../public/assets/img/logo.png" alt="Star Wars logo"/>
-          </a>
-        </Link>
-        <p>All rights reserved to Murciegalo Inc. &copy;</p>
+        <section className="logoF">
+          <Link href='/'><a></a></Link>
+        </section>
+        <p>All rights reserved to Murciegalo Inc. 2020 &copy; </p>
       </section> 
     </>
   )
