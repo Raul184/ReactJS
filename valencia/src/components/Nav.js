@@ -24,28 +24,28 @@ const Nav = () => {
       <section className="social-lastV">
         <ul className="social">
           <li>
-            <Link href='www.facebook.com'>
-              <a><FaFacebook /></a> 
+            <Link href='#'>
+              <a target="_blank"><FaFacebook /></a> 
             </Link>
           </li>
           <li>
-            <Link href='www.twitter.com'>
-              <a><FaTwitter /></a> 
+            <Link href='#'>
+              <a target="_blank"><FaTwitter /></a> 
             </Link>
           </li>
           <li>
-            <Link href='www.tumblr.com'>
-              <a><FaTumblr /></a> 
+            <Link href='#'>
+              <a target="_blank"><FaTumblr /></a> 
             </Link>
           </li>
           <li>
-            <Link href='www.instagram.com'>
-              <a><FaInstagram /></a> 
+            <Link href='#'>
+              <a target="_blank"><FaInstagram /></a> 
             </Link>
           </li>
           <li>
-            <Link href='www.youtube.com'>
-              <a><FaYoutube /></a> 
+            <Link href='#'>
+              <a target="_blank"><FaYoutube /></a> 
             </Link>
           </li>
         </ul>
@@ -59,14 +59,13 @@ const Nav = () => {
       </section>
       <section className="search">
         <form onSubmit={handleSubmit}>
-          <div class="query">
+          <div className="query">
             <input 
               type="text" 
               placeholder="Star Wars" 
               name="search" 
               value={search}
               onChange={(e) => setData({ ...data , [e.target.name]: e.target.value })} 
-              spellcheck="false"
             />
             <FaSearch />
           </div>

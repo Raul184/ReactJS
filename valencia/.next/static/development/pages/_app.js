@@ -16513,7 +16513,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const Footer = () => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("section", {
-    className: "footer",
+    className: "Footer",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 8
@@ -16640,13 +16640,14 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    href: "www.facebook.com",
+    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 27
     },
     __self: undefined
   }, __jsx("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 28
@@ -16665,13 +16666,14 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    href: "www.twitter.com",
+    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 32
     },
     __self: undefined
   }, __jsx("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 33
@@ -16690,13 +16692,14 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    href: "www.tumblr.com",
+    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 37
     },
     __self: undefined
   }, __jsx("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 38
@@ -16715,13 +16718,14 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    href: "www.instagram.com",
+    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 42
     },
     __self: undefined
   }, __jsx("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 43
@@ -16740,13 +16744,14 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
-    href: "www.youtube.com",
+    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 47
     },
     __self: undefined
   }, __jsx("a", {
+    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 48
@@ -16800,7 +16805,7 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx("div", {
-    class: "query",
+    className: "query",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 62
@@ -16814,7 +16819,6 @@ const Nav = () => {
     onChange: e => setData(_objectSpread({}, data, {
       [e.target.name]: e.target.value
     })),
-    spellcheck: "false",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 63
@@ -16823,20 +16827,20 @@ const Nav = () => {
   }), __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_8__["FaSearch"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 70
     },
     __self: undefined
   }))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_9___default.a, {
     href: "/lister",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 73
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 73
     },
     __self: undefined
   }, "Go to lister"))));

@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <>
-      <section className="footer">
+      <section className="Footer">
         <section className="logoF">
           <Link href='/'><a></a></Link>
         </section>
