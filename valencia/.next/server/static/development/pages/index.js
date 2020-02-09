@@ -104,20 +104,40 @@ module.exports =
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_image_show__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-image-show */ "react-image-show");
+/* harmony import */ var react_image_show__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_image_show__WEBPACK_IMPORTED_MODULE_1__);
 var _jsxFileName = "C:\\Users\\Raul\\Desktop\\projects\\ReactJS\\valencia\\src\\pages\\index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
  //Carrusel
-// import SlideShow from 'react-image-show';
+
+
 
 const Index = props => {
-  const urlArray = ["https://cdn.pixabay.com/photo/2018/09/30/19/03/railway-station-3714297__340.jpg", "https://i.ytimg.com/vi/HEkpbJYyv6k/maxresdefault.jpg"];
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("h1", {
+  const urlArray = ["https://i.pinimg.com/600x315/4f/a5/bd/4fa5bdd32a614a2ab59fe92cf65c0a2d.jpg", "http://www.vectorfree.com/media/vectors/star-wars-pack.jpg", "https://www.hipsthetic.com/wp-content/uploads/2016/04/Top-10-Free-Star-Wars-Vector-Icon-Sets-01.jpg", "http://pngimg.com/uploads/starwars/starwars_PNG7.png", "https://cdn.pixabay.com/photo/2012/04/18/18/59/star-wars-37577_960_720.png", "https://cdn.dribbble.com/users/1994296/screenshots/3968552/thelastvectordrb.png", "https://clipartion.com/wp-content/uploads/2015/10/star-wars-image-blog-clipart-free-clip-art-images.png"];
+  return __jsx("section", {
+    className: "Homepage",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 17
     },
     __self: undefined
-  }, "HomePage"));
+  }, __jsx(react_image_show__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    images: urlArray,
+    width: "920px",
+    imagesWidth: "800px",
+    imagesHeight: "450px",
+    imagesHeightMobile: "56vw",
+    thumbnailsWidth: "920px",
+    thumbnailsHeight: "12vw",
+    indicators: true,
+    thumbnails: true,
+    fixedImagesHeight: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: undefined
+  }));
 };
 
 Index.propTypes = {};
@@ -145,6 +165,17 @@ module.exports = __webpack_require__(/*! C:\Users\Raul\Desktop\projects\ReactJS\
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-image-show":
+/*!***********************************!*\
+  !*** external "react-image-show" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-image-show");
 
 /***/ })
 
