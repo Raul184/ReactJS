@@ -1,6 +1,6 @@
 import React from 'react'
 //Carrusel
-// import SlideShow from 'react-image-show';
+import SlideShow from 'react-image-show';
 
 
 const Index = props => {
@@ -15,7 +15,7 @@ const Index = props => {
   ]
   return (
     <section className="Homepage">
-      {/* <SlideShow
+      <SlideShow
         images={urlArray}
         width="920px"
         imagesWidth="800px"
@@ -24,14 +24,10 @@ const Index = props => {
         thumbnailsWidth="920px"
         thumbnailsHeight="12vw"
         indicators thumbnails fixedImagesHeight
-      /> */}
+      />
     </section>
   )
 }
 
-
-Index.propTypes = {
-
-}
 
 export default Index

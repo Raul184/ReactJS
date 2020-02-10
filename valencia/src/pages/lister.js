@@ -42,7 +42,7 @@ class Lister extends React.Component {
           results.map( el => (
             <div key={uuid()} className="ListerItem">
               <ListerItem  {...el} /> 
-              <Link href={`/detail?id=${el.name}`}>
+              <Link href={`/detail?id=${el.name}`} as={`/d/${el.name}`}>
                 <a>More Details</a>
               </Link>
             </div>

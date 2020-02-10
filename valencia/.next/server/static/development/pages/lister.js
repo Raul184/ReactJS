@@ -4609,6 +4609,7 @@ class Lister extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       __self: this
     })), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
       href: `/detail?id=${el.name}`,
+      as: `/d/${el.name}`,
       __source: {
         fileName: _jsxFileName,
         lineNumber: 45

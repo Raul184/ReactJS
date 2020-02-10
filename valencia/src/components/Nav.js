@@ -1,4 +1,6 @@
 import React , { useState} from 'react'
+import { withRouter }  from 'next/router';
+
 import { 
   FaFacebook , 
   FaTwitter , 
@@ -12,12 +14,11 @@ import Link from 'next/link';
 
 
 const Nav = () => {
-  const [data, setData] = useState({
-    search: ''
-  })
-  const { search } = data;
-  const handleSubmit = () => {
-    console.log('submit');
+  const [data, setData] = useState(''
+  )
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    return  <Link href={`/detail?id=${data}`}><a></a></Link>
   }
   return (
     <nav className="Nav">
@@ -64,17 +65,19 @@ const Nav = () => {
               type="text" 
               placeholder="Star Wars" 
               name="search" 
-              value={search}
-              onChange={(e) => setData({ ...data , [e.target.name]: e.target.value })} 
+              value={data}
+              onChange={(e) => setData(e.target.value)} 
             />
-            <FaSearch />
+            <Link href={`/detail?id=${data}`}><a><FaSearch /></a></Link>
           </div>
         </form>  
-        <Link href='/lister'><a>Go to lister</a></Link>
+        <div className="link">
+          <Link href='/lister'><a>Go to lister</a></Link>
+        </div>
       </section>
     </nav>
   )
 }
 
 
-export default Nav;
+export default withRouter(Nav);

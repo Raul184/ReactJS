@@ -16634,6 +16634,7 @@ class Lister extends react__WEBPACK_IMPORTED_MODULE_2___default.a.Component {
       __self: this
     })), __jsx(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
       href: "/detail?id=".concat(el.name),
+      as: "/d/".concat(el.name),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 45

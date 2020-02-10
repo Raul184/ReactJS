@@ -82,34 +82,36 @@ nav{
         font-size: 1em;
         color: #fff;
       }
-      svg{
+      a{
         position: absolute;
-        top: 10px;
+        top: 8px;
         right: 12px;
       }
     }
     // Single-link
-    a{
-      text-decoration: none;
-      display: inline-block;
-      color: #aaa;
-      transition: font .125s;
-      &:after {
-        content: '';
-        display: block;
-        margin-top: 5px;
-        height: 2px;
-        width: 0;
-        background: transparent;
-        transition: width .5s ease, background-color .5s ease;
-      }
-       &:hover {  
-         font-size: 1.4em;
-         color: #fff;
-         &:after {
-           width: 100%;
-          background: #fff;
-         }   
+    .link{
+      a{
+        text-decoration: none;
+        display: inline-block;
+        color: #aaa;
+        transition: font .125s;
+        &:after {
+          content: '';
+          display: block;
+          margin-top: 5px;
+          height: 2px;
+          width: 0;
+          background: transparent;
+          transition: width .5s ease, background-color .5s ease;
+        }
+         &:hover {  
+           font-size: 1.4em;
+           color: #fff;
+           &:after {
+             width: 100%;
+            background: #fff;
+           }   
+        }
       }
     }
   }
@@ -174,6 +176,12 @@ nav{
   color:#aaa;
   padding: 0em 3em;
   text-align: center;
+  h1 , h2 {
+    margin: 1em;
+  }
+  ul{
+    list-style: none;
+  }
   a{
     text-decoration: none;
     color:#aaa;
@@ -181,7 +189,7 @@ nav{
     border: 1px solid #fff;
     border-radius: 20px;
     box-shadow: 1px 2px 0px 1px aliceblue;
-    margin: 4rem;
+    margin: 3rem;
     display: block;
     transition: all .125s;
     &:hover{
