@@ -25,6 +25,12 @@ const Nav = ({ arr }) => {
     arr.push(query.id)
   }
   if(arr.length > 3){ arr.splice(0,1) }
+
+  //Submit
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+  }
   return (
     <nav className="Nav">
       <section className="social-lastV">
@@ -67,7 +73,7 @@ const Nav = ({ arr }) => {
         </Link>
       </section>
       <section className="search">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="query">
             <input 
               type="text" 
@@ -76,7 +82,7 @@ const Nav = ({ arr }) => {
               value={search}
               onChange={(e) => { setData({ ...data , [ e.target.name ]: e.target.value })}} 
             />
-            <Link href={`/detail?id=${data}`}><a><FaSearch /></a></Link>
+            <Link href={`/detail?id=${search}`}><a><FaSearch /></a></Link>
           </div>
         </form>  
         <div className="link">

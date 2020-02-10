@@ -44,12 +44,14 @@ Detail.getInitialProps = async ({ query }) => {
   const res = await fetch(`https://swapi.co/api/people/?search=${query.id}`)
   const resJson = await res.json()
   const personaje = resJson.results[0]
-  // Get His movies
-  personaje.films.forEach( async el => {
-    const movie = await fetch(el)
-    const movieJson = await movie.json()
-    titles.push(movieJson.title)
-  })
+  if(personaje){
+    // Get His movies
+    personaje.films.forEach( async el => {
+      const movie = await fetch(el)
+      const movieJson = await movie.json()
+      titles.push(movieJson.title)
+    })
+  }
   return { 
     personaje ,
     titles 

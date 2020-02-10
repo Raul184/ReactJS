@@ -16888,206 +16888,212 @@ const Nav = ({
 
   if (arr.length > 3) {
     arr.splice(0, 1);
-  }
+  } //Submit
+
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
 
   return __jsx("nav", {
     className: "Nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 35
     },
     __self: undefined
   }, __jsx("section", {
     className: "social-lastV",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 36
     },
     __self: undefined
   }, __jsx("ul", {
     className: "social",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 37
     },
     __self: undefined
   }, __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 38
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 39
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 40
     },
     __self: undefined
   }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaFacebook"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 40
     },
     __self: undefined
   })))), __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37
-    },
-    __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
-    href: "#",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 38
-    },
-    __self: undefined
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    },
-    __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaTwitter"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 39
-    },
-    __self: undefined
-  })))), __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 42
-    },
-    __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
-    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 43
     },
     __self: undefined
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    href: "#",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 44
+    },
+    __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 45
     },
     __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaTumblr"], {
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaTwitter"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 45
     },
     __self: undefined
   })))), __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
-    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 48
     },
     __self: undefined
-  }, __jsx("a", {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    href: "#",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49
     },
     __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaInstagram"], {
+  }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 50
+    },
+    __self: undefined
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaTumblr"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
     },
     __self: undefined
   })))), __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 54
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 55
+    },
+    __self: undefined
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaInstagram"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 55
+    },
+    __self: undefined
+  })))), __jsx("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: undefined
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
+    href: "#",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: undefined
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
     },
     __self: undefined
   }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaYoutube"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 60
     },
     __self: undefined
   }))))), __jsx("aside", {
     className: "lastView",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 65
     },
     __self: undefined
   }, arr.map(el => __jsx("span", {
     key: uuid__WEBPACK_IMPORTED_MODULE_9___default()(),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 66
     },
     __self: undefined
   }, " ", el, " ")))), __jsx("section", {
     className: "logo",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 69
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 70
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 71
     },
     __self: undefined
   }))), __jsx("section", {
     className: "search",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 75
     },
     __self: undefined
   }, __jsx("form", {
+    onSubmit: handleSubmit,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70
+      lineNumber: 76
     },
     __self: undefined
   }, __jsx("div", {
     className: "query",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 77
     },
     __self: undefined
   }, __jsx("input", {
@@ -17102,46 +17108,46 @@ const Nav = ({
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 78
     },
     __self: undefined
   }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
-    href: "/detail?id=".concat(data),
+    href: "/detail?id=".concat(search),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 85
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 85
     },
     __self: undefined
   }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaSearch"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 85
     },
     __self: undefined
   }))))), __jsx("div", {
     className: "link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 88
     },
     __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_11___default.a, {
     href: "/lister",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 89
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 89
     },
     __self: undefined
   }, "Go to lister")))));

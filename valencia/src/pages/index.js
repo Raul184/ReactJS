@@ -1,7 +1,6 @@
 import React from 'react'
 import dynamic from 'next/dynamic';
-//Carrusel
-// import SlideShow from 'react-image-show';
+import PropTypes from 'prop-types'
 
 const SlideShow = dynamic(
   () => import('react-image-show'),
@@ -26,8 +25,6 @@ const Index = ({pics}) => {
     </section>
   )
 }
-
-
 Index.defaultProps = {
   pics: [
     "https://i.pinimg.com/600x315/4f/a5/bd/4fa5bdd32a614a2ab59fe92cf65c0a2d.jpg",
@@ -40,5 +37,7 @@ Index.defaultProps = {
   ]
 };
 
-
+Index.propTypes = {
+  pics: PropTypes.array.isRequired,
+}
 export default Index
