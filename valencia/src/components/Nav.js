@@ -1,6 +1,6 @@
 import React , { useState} from 'react'
-import { withRouter }  from 'next/router';
-
+import { useRouter }  from 'next/router';
+import uuid from 'uuid'
 import { 
   FaFacebook , 
   FaTwitter , 
@@ -13,44 +13,52 @@ import {
 import Link from 'next/link';
 
 
-const Nav = () => {
-  const [data, setData] = useState(''
-  )
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    return  <Link href={`/detail?id=${data}`}><a></a></Link>
+const Nav = ({ arr }) => {
+  // H
+  const Router = useRouter();
+  const [data, setData] = useState({
+    search: '' 
+  })
+  const { search } = data;
+  const { query } = Router;
+  if( query.id !== undefined ){
+    arr.push(query.id)
   }
+  if(arr.length > 3){ arr.splice(0,1) }
   return (
     <nav className="Nav">
       <section className="social-lastV">
         <ul className="social">
           <li>
             <Link href='#'>
-              <a target="_blank"><FaFacebook /></a> 
+              <a><FaFacebook /></a> 
             </Link>
           </li>
           <li>
             <Link href='#'>
-              <a target="_blank"><FaTwitter /></a> 
+              <a><FaTwitter /></a> 
             </Link>
           </li>
           <li>
             <Link href='#'>
-              <a target="_blank"><FaTumblr /></a> 
+              <a><FaTumblr /></a> 
             </Link>
           </li>
           <li>
             <Link href='#'>
-              <a target="_blank"><FaInstagram /></a> 
+              <a><FaInstagram /></a> 
             </Link>
           </li>
           <li>
             <Link href='#'>
-              <a target="_blank"><FaYoutube /></a> 
+              <a><FaYoutube /></a> 
             </Link>
           </li>
         </ul>
-        <aside className="lastView">Last checked</aside>
+        {/* HISTORY PROP TO BE INCLUDED */}
+        <aside className="lastView">
+          { arr.map(el => <span key={uuid()}> {el} </span> ) }
+        </aside>
       </section>
       <section className="logo">
         <Link href='/'>
@@ -59,14 +67,14 @@ const Nav = () => {
         </Link>
       </section>
       <section className="search">
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="query">
             <input 
               type="text" 
               placeholder="Star Wars" 
               name="search" 
-              value={data}
-              onChange={(e) => setData(e.target.value)} 
+              value={search}
+              onChange={(e) => { setData({ ...data , [ e.target.name ]: e.target.value })}} 
             />
             <Link href={`/detail?id=${data}`}><a><FaSearch /></a></Link>
           </div>
@@ -79,5 +87,8 @@ const Nav = () => {
   )
 }
 
+Nav.defaultProps = {
+  arr: []
+}
 
-export default withRouter(Nav);
+export default Nav;

@@ -1,12 +1,11 @@
-import React from 'react'
+import React , { useState , useEffect } from 'react'
 import fetch from 'isomorphic-unfetch'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+import uuid from 'uuid'
 
-//getInitialProps ==> receives a context object 
-// { pathname , query , asPath , req , res , err }
-  
 const Detail = ({ personaje , titles  }) => {
+  const [ movies , setMovies ] = useState(null);
   const {
     name ,
     hair_color ,
@@ -14,7 +13,11 @@ const Detail = ({ personaje , titles  }) => {
     eye_color ,
     birth_year ,
     gender } = personaje
-  console.log(titles);
+
+  useEffect(() => {
+    titles !== undefined && setMovies(titles)
+  },
+  [titles])   
   return (
     <section className="Detail">
       <h1>{name}</h1>
@@ -25,7 +28,9 @@ const Detail = ({ personaje , titles  }) => {
       <p>Gender: {gender}</p>
       <h2>Movies:</h2>
       <ul>
-        { titles.length > 0 && titles.map(el => <li>{el}</li>)}
+        { 
+          movies !== null && titles.map(el => <li key={uuid()}>{el}</li>)
+        }
       </ul> 
       <Link href="/lister"><a>Back to list</a></Link>
     </section>
@@ -44,8 +49,6 @@ Detail.getInitialProps = async ({ query }) => {
     const movieJson = await movie.json()
     titles.push(movieJson.title)
   })
-  console.log(personaje);
-  console.log(titles);
   return { 
     personaje ,
     titles 

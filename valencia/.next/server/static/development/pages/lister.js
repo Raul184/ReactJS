@@ -4523,10 +4523,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ListerItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ListerItem */ "./src/components/ListerItem.js");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/fa */ "react-icons/fa");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
 var _jsxFileName = "C:\\Users\\Raul\\Desktop\\projects\\ReactJS\\valencia\\src\\pages\\lister.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -4537,115 +4543,143 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
  //icons
 
- //eslint-disable-next-line
 
-{
-  /* <Link href={{ pathname: '/detail/', query: { name: `${el.name}` } }}> */
-}
 
-class Lister extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  constructor(...args) {
-    super(...args);
 
-    _defineProperty(this, "handleClick", async call => {
-      if (call === null) {
-        return '';
-      }
+const Lister = ({
+  next,
+  previous,
+  results
+}) => {
+  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_6__["useRouter"])();
+  const {
+    0: data,
+    1: setData
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    sig: next,
+    prev: previous,
+    res: results
+  });
+  const {
+    sig,
+    prev,
+    res
+  } = data; //TO DO => Get Initial Props to recognized new call since 
+  // they don't allow me to modify results after fetching new data
 
-      const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()(call);
-      const resJson = res.json();
-      this.props.results = resJson;
-    });
-  }
+  const handlePrev = async () => {
+    if (prev === null) {
+      router.push('/lister');
+    } else {
+      const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()(prev);
+      const resJson = await res.json();
+      const {
+        next,
+        previous,
+        results
+      } = resJson;
+      setData(_objectSpread({}, data, {
+        sig: next,
+        prev: previous,
+        res: results
+      }));
+    }
+  };
 
-  static async getInitialProps(ctx) {
-    const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://swapi.co/api/people');
+  const handleNext = async () => {
+    const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()(sig);
     const resJson = await res.json();
     const {
       next,
       previous,
       results
     } = resJson;
-    return {
-      next,
-      previous,
-      results
-    };
-  }
+    setData(_objectSpread({}, data, {
+      sig: next,
+      prev: previous,
+      res: results
+    }));
+  };
 
-  render() {
-    const {
-      results,
-      next,
-      previous
-    } = this.props;
-    return __jsx("div", {
-      className: "Lister",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 38
-      },
-      __self: this
-    }, __jsx("section", {
-      className: "results",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    }, results !== undefined && results.length > 0 && results.map(el => __jsx("div", {
-      key: uuid__WEBPACK_IMPORTED_MODULE_1___default()(),
-      className: "ListerItem",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 43
-      },
-      __self: this
-    }, __jsx(_components_ListerItem__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, el, {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 44
-      },
-      __self: this
-    })), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      href: `/detail?id=${el.name}`,
-      as: `/d/${el.name}`,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45
-      },
-      __self: this
-    }, __jsx("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 46
-      },
-      __self: this
-    }, "More Details"))))), __jsx("section", {
-      className: "arrows",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 54
-      },
-      __self: this
-    }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__["FaArrowLeft"], {
-      onClick: () => this.handleClick(previous),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    }), __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__["FaArrowRight"], {
-      onClick: () => this.handleClick(next),
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 56
-      },
-      __self: this
-    })));
-  }
+  return __jsx("div", {
+    className: "Lister",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx("section", {
+    className: "results",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, res !== undefined && res.length > 0 && res.map(el => __jsx("div", {
+    key: uuid__WEBPACK_IMPORTED_MODULE_1___default()(),
+    className: "ListerItem",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 57
+    },
+    __self: undefined
+  }, __jsx(_components_ListerItem__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, el, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: undefined
+  })), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+    href: `/detail?id=${el.name}`,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: undefined
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, "More Details"))))), __jsx("section", {
+    className: "arrows",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__["FaArrowLeft"], {
+    onClick: handlePrev,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 69
+    },
+    __self: undefined
+  }), __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_5__["FaArrowRight"], {
+    onClick: handleNext,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 70
+    },
+    __self: undefined
+  })));
+};
 
-}
+Lister.getInitialProps = async () => {
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('https://swapi.co/api/people');
+  const resJson = await res.json();
+  const {
+    next,
+    previous,
+    results
+  } = resJson;
+  return {
+    next,
+    previous,
+    results
+  };
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Lister);
 
@@ -4671,6 +4705,17 @@ module.exports = __webpack_require__(/*! C:\Users\Raul\Desktop\projects\ReactJS\
 /***/ (function(module, exports) {
 
 module.exports = require("isomorphic-unfetch");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 

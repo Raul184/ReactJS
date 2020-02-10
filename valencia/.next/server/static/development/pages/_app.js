@@ -4646,95 +4646,81 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-icons/fa */ "react-icons/fa");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! uuid */ "uuid");
+/* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(uuid__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "react-icons/fa");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_4__);
 var _jsxFileName = "C:\\Users\\Raul\\Desktop\\projects\\ReactJS\\valencia\\src\\components\\Nav.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
 
-const Nav = () => {
+
+
+
+const Nav = ({
+  arr
+}) => {
+  // H
+  const Router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
   const {
     0: data,
     1: setData
-  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('');
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    search: ''
+  });
+  const {
+    search
+  } = data;
+  const {
+    query
+  } = Router;
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    return __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-      href: `/detail?id=${data}`,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: undefined
-    }, __jsx("a", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: undefined
-    }));
-  };
+  if (query.id !== undefined) {
+    arr.push(query.id);
+  }
+
+  if (arr.length > 3) {
+    arr.splice(0, 1);
+  }
 
   return __jsx("nav", {
     className: "Nav",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 29
     },
     __self: undefined
   }, __jsx("section", {
     className: "social-lastV",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 30
     },
     __self: undefined
   }, __jsx("ul", {
     className: "social",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 31
     },
     __self: undefined
   }, __jsx("li", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
-    },
-    __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    href: "#",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 28
-    },
-    __self: undefined
-  }, __jsx("a", {
-    target: "_blank",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29
-    },
-    __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__["FaFacebook"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 29
-    },
-    __self: undefined
-  })))), __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
       lineNumber: 32
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
@@ -4742,13 +4728,12 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx("a", {
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34
     },
     __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__["FaTwitter"], {
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaFacebook"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 34
@@ -4760,7 +4745,7 @@ const Nav = () => {
       lineNumber: 37
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
@@ -4768,13 +4753,12 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx("a", {
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 39
     },
     __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__["FaTumblr"], {
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaTwitter"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 39
@@ -4786,7 +4770,7 @@ const Nav = () => {
       lineNumber: 42
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
@@ -4794,13 +4778,12 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx("a", {
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 44
     },
     __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__["FaInstagram"], {
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaTumblr"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 44
@@ -4812,7 +4795,7 @@ const Nav = () => {
       lineNumber: 47
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "#",
     __source: {
       fileName: _jsxFileName,
@@ -4820,120 +4803,157 @@ const Nav = () => {
     },
     __self: undefined
   }, __jsx("a", {
-    target: "_blank",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49
     },
     __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__["FaYoutube"], {
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaInstagram"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49
+    },
+    __self: undefined
+  })))), __jsx("li", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: undefined
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
+    href: "#",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: undefined
+  }, __jsx("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
+    },
+    __self: undefined
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaYoutube"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 54
     },
     __self: undefined
   }))))), __jsx("aside", {
     className: "lastView",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 59
     },
     __self: undefined
-  }, "Last checked")), __jsx("section", {
+  }, arr.map(el => __jsx("span", {
+    key: uuid__WEBPACK_IMPORTED_MODULE_2___default()(),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 60
+    },
+    __self: undefined
+  }, " ", el, " ")))), __jsx("section", {
     className: "logo",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 63
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 64
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 65
     },
     __self: undefined
   }))), __jsx("section", {
     className: "search",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 69
     },
     __self: undefined
   }, __jsx("form", {
-    onSubmit: handleSubmit,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 70
     },
     __self: undefined
   }, __jsx("div", {
     className: "query",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 71
     },
     __self: undefined
   }, __jsx("input", {
     type: "text",
     placeholder: "Star Wars",
     name: "search",
-    value: data,
-    onChange: e => setData(e.target.value),
+    value: search,
+    onChange: e => {
+      setData(_objectSpread({}, data, {
+        [e.target.name]: e.target.value
+      }));
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 72
     },
     __self: undefined
-  }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }), __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: `/detail?id=${data}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 79
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 79
     },
     __self: undefined
-  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_2__["FaSearch"], {
+  }, __jsx(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaSearch"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 79
     },
     __self: undefined
   }))))), __jsx("div", {
     className: "link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 82
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_4___default.a, {
     href: "/lister",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 83
     },
     __self: undefined
   }, __jsx("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 83
     },
     __self: undefined
   }, "Go to lister")))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(next_router__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(Nav));
+Nav.defaultProps = {
+  arr: []
+};
+/* harmony default export */ __webpack_exports__["default"] = (Nav);
 
 /***/ }),
 
@@ -5086,6 +5106,17 @@ module.exports = require("react-icons/fa");
 /***/ (function(module, exports) {
 
 module.exports = require("url");
+
+/***/ }),
+
+/***/ "uuid":
+/*!***********************!*\
+  !*** external "uuid" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("uuid");
 
 /***/ })
 
