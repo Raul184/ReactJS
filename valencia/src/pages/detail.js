@@ -3,21 +3,22 @@ import fetch from 'isomorphic-unfetch'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import uuid from 'uuid'
+import { useRouter }  from 'next/router';
+
 
 const Detail = ({ personaje , titles  }) => {
-  const [ movies , setMovies ] = useState(null);
+  const Router = useRouter();
+  console.log(Router);
+
   const {
     name ,
     hair_color ,
     skin_color ,
     eye_color ,
     birth_year ,
-    gender } = personaje
-
-  useEffect(() => {
-    titles !== undefined && setMovies(titles)
-  },
-  [titles])   
+    gender 
+  } = personaje
+  
   return (
     <section className="Detail">
       <h1>{name}</h1>
@@ -29,7 +30,7 @@ const Detail = ({ personaje , titles  }) => {
       <h2>Movies:</h2>
       <ul>
         { 
-          movies !== null && titles.map(el => <li key={uuid()}>{el}</li>)
+          titles !== undefined && titles.map(el => <li key={uuid()}>{el}</li>)
         }
       </ul> 
       <Link href="/lister"><a>Back to list</a></Link>
