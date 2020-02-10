@@ -1,12 +1,19 @@
 import React from 'react'
+import dynamic from 'next/dynamic';
 //Carrusel
 // import SlideShow from 'react-image-show';
 
+const SlideShow = dynamic(
+  () => import('react-image-show'),
+  {
+      ssr: false
+  }
+)
 
 const Index = ({pics}) => {
   return (
     <section className="Homepage">
-      {/* <SlideShow
+      <SlideShow
         images={pics}
         width="920px"
         imagesWidth="800px"
@@ -15,7 +22,7 @@ const Index = ({pics}) => {
         thumbnailsWidth="920px"
         thumbnailsHeight="12vw"
         indicators thumbnails fixedImagesHeight
-      /> */}
+      />
     </section>
   )
 }
