@@ -26,11 +26,8 @@ const Nav = ({ arr }) => {
   }
   if(arr.length > 3){ arr.splice(0,1) }
 
-  //Submit
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-  }
+  const handleSubmit = e => e.preventDefault();
+  
   return (
     <nav className="Nav">
       <section className="social-lastV">
