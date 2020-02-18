@@ -2,15 +2,16 @@ import React , { useContext } from "react";
 // Url params
 import { useParams } from "react-router-dom";
 // Context
-import { productsContext } from '../context/products';
-import { cartContext } from '../context/cart';
+import { ProductsContext } from '../context/products';
+import { CartContext } from '../context/cart';
 import { useHistory } from 'react-router-dom';
 
 export default function ProductDetails() {
   // dinamic URL params
   const { id } = useParams();
   const history = useHistory();
-  const { products } = useContext(productsContext);
+  const { products } = useContext(ProductsContext);
+  const { addItem } = useContext(CartContext);
   
   const product = products.find(el => el.id === parseInt(id) )
   const { image: { url } , title , price , description } = product;
@@ -23,7 +24,10 @@ export default function ProductDetails() {
         <p>{description}</p>
         <button 
           className="btn btn-primary btn-block"
-          onClick={() => history.push('/cart')}
+          onClick={() => {
+            addItem(product)
+            history.push('/cart')
+          }}
         >
           Add to Cart
         </button>

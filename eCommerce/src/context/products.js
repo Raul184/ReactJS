@@ -2,7 +2,7 @@ import React , { createContext , useState , useEffect } from 'react';
 import axios from 'axios';
 
 
-export const productsContext = createContext();
+export const ProductsContext = createContext();
 
 export const ProductsProvider = ({children}) => {
   const [ state , setState ] = useState({
@@ -28,12 +28,12 @@ export const ProductsProvider = ({children}) => {
   [])
   
   return (
-    <productsContext.Provider value={{
+    <ProductsContext.Provider value={{
       products ,
       loading ,
       featured
     }}>
       {children}
-    </productsContext.Provider>
+    </ProductsContext.Provider>
   )
 }

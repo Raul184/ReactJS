@@ -1,12 +1,12 @@
 import React , { useContext } from "react";
-import { productsContext } from '../context/products';
+import { ProductsContext } from '../context/products';
 //layout
 import Loading from '../components/layout/Loading';
 import ProductList from '../components/layout/ProductList';
 
 
 export default function Products() {
-  const { loading , products } = useContext(productsContext);  
+  const { loading , products } = useContext(ProductsContext);
   console.log(products);
   return <>
     { loading ? 
